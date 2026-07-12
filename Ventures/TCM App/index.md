@@ -4,7 +4,7 @@
 
 Food/symptom tracker app that layers Traditional Chinese Medicine food-property insight (thermal nature, organ affinity, symptom-based recommendations) onto a MyFitnessPal-style daily logging experience.
 
-- **Stage:** Idea / market research complete
+- **Stage:** Research complete — wedge and audience decided (2026-07-12). Not yet spec'd for build: no Build Plan or Super Prompt yet (see Documents below). Validating via TikTok content test before committing to build.
 - **Model:** Likely freemium mobile app (subscription for personalized recommendations), TBD
 - **Origin:** Angela's own idea, explored 2026-07-12
 
@@ -12,6 +12,22 @@ Food/symptom tracker app that layers Traditional Chinese Medicine food-property 
 - Log food like MyFitnessPal, but each food/ingredient carries TCM properties: thermal nature (hot/warm/neutral/cool/cold), five flavors, organ/meridian affinity
 - Symptom- or season-triggered recommendations (e.g. flu symptoms → suggested/avoided foods)
 - Positioning thread: "ancient wisdom meets modern tracking" — same narrative lane as Meridian
+
+## Positioning
+
+The gap: existing TCM food tools (TCM Food Therapy, Qi Health, practitioner quiz sites) are static content/lead-gen, not tracking apps with a retention loop; Ayurveda apps (AyuRythm, Prana, Dosha Diet) proved the "traditional-medicine personalized food app" model works in the West but nothing equivalent exists for TCM; even the dominant Chinese tracker (Boohee) is calorie-first, not TCM-property-first. Lead wedge is **dampness/gut-health/bloating** — it maps TCM vocabulary almost 1:1 onto an already-massive, already-trending Western wellness conversation (digestive health market $60.4B→$124.9B by 2034), with the lowest regulatory/credibility risk of the candidate wedges. Audience: Western wellness first, broaden to diaspora/general TCM audience later. Same "ancient wisdom meets modern app" narrative lane as [[Ventures/Meridian/index|Meridian]], and can reuse the Ange.beee distribution channel the way Meridian does.
+
+## MVP scope (v1) — draft, not yet finalized into a Super Prompt
+
+Scoped to the dampness/gut-health wedge, not all of TCM nutrition:
+
+1. Onboarding: TCM body constitution quiz (9 types), framed in Western-friendly language, weighted toward identifying damp/spleen-qi-deficient patterns
+2. Food logging (MyFitnessPal-style) with TCM property tags per food: thermal nature, five flavors, organ affinity
+3. Symptom journal scoped to digestion/energy (bloating, sluggishness, water retention) logged alongside food, surfacing correlations over time
+4. "What to eat when..." lookup scoped first to dampness/digestion, immune/flu, and low energy — not the full materia medica
+5. Seasonal tips tied to the 24 solar terms (二十四节气) as a retention/content hook
+
+**Deliberately cut from v1 (backlog, see Feature ideas below):** photo/barcode scanning, practitioner directory/telehealth, cycle-syncing module, postpartum confinement program, AI chat assistant. Revisit once the dampness wedge has traction.
 
 ## Market research (2026-07-12)
 
@@ -73,8 +89,14 @@ Ranked by fit with the Western-wellness-first audience decision and current tren
 - **Human review layer:** licensed TCM/Chinese medicine practitioner sign-off before publishing any entry — legitimacy, liability protection, and a marketing asset ("reviewed by licensed practitioners").
 - **Proposed schema per food entry:** thermal nature, five flavors, organ/meridian affinity, actions/indications, contraindications, source citation(s), confidence/consensus level (since classical and clinic sources sometimes disagree).
 
+## Documents
+
+- **Build Plan** — not yet created. Write once ready to move from research to build, mirroring [[Ventures/Meridian/Build Plan|Meridian's Build Plan]] (step-by-step, no coding experience assumed).
+- **Super Prompt** — not yet created. Write once MVP scope above is finalized and a tech stack is chosen, mirroring [[Ventures/Meridian/Super Prompt|Meridian's Super Prompt]] (paste into a fresh Claude Code session to build). Should encode: the dampness-wedge MVP scope, the Western-first audience/tone, the data-sourcing + practitioner-review pipeline, and the same "deterministic-data + AI-interpreter" principle Meridian uses (AI explains/personalizes pre-verified TCM data, never invents a food's property).
+
 ## Tasks
-_(add tasks here as they come up)_
+- [ ] Run the TikTok content test (see [[Content/Ideas/TCM food properties series]]) before committing further research/build time
+- [ ] Once validated: write Build Plan + Super Prompt (see Documents above)
 
 ## Notes / progress
 _(running notes here)_

@@ -9,6 +9,11 @@ Active tasks, open questions, and decisions pending.
 - [ ] Decide whether to post a build-in-public teaser on TikTok once the Phase 1 waitlist page is live.
 - [ ] Re-run `gbrain import "C:\Users\Angela\Documents\Obsidian\Brain"` — the 2026-07-12 evening import failed twice with "Timed out waiting for PGLite lock" (another session holds the gbrain database). New Astrology App notes aren't in semantic search until this runs.
 
+## TCM App (research stage)
+- [x] Market research, competitor landscape, data-sourcing strategy, target audience, and niche-wedge decisions captured in [[Ventures/TCM App/index|TCM App]] (2026-07-12)
+- [ ] Run the TikTok content test first (below) before investing more time
+- [ ] Once validated, write Build Plan + Super Prompt for TCM App, mirroring the Meridian process
+
 ## Content (Ange.beee)
 - [ ] Edit black sesame video for TikTok
 - [ ] Film/post the TCM food properties series (ginger hot/cold, flu-symptom foods) — cheap validation test for [[Ventures/TCM App/index|TCM App]] before building anything; see [[Content/Ideas/TCM food properties series]]
