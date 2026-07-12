@@ -4,7 +4,7 @@
 
 Educational TCM ingredient repository app — search or browse an ingredient to see its Traditional Chinese Medicine assessment (thermal nature, five flavors, organ affinity, symptom relevance), personalized against your TCM body constitution. Tracking/logging is a possible future layer, added only if user demand shows up — it is not the initial focus.
 
-- **Stage:** Research complete — wedge, audience, and core mechanic decided. **Pivoted 2026-07-12** from a MyFitnessPal-style food tracker to an educational ingredient lookup/repository, with personalization (not tracking) as the differentiator. Not yet spec'd for build: no Build Plan or Super Prompt yet (see Documents below). Validating via TikTok content test before committing to build.
+- **Stage:** Spec'd — build plan and super prompt ready (2026-07-13). Not yet built. **Pivoted 2026-07-12** from a MyFitnessPal-style food tracker to an educational ingredient lookup/repository, with personalization (not tracking) as the differentiator. Validate via the TikTok content test in parallel with building — see Build Plan.
 - **Model:** TBD, and genuinely open — a reference/lookup tool doesn't support a subscription as naturally as a tracker does (see Open gaps below). Needs its own pricing thesis, not a carryover of the tracker-era subscription assumption.
 - **Origin:** Angela's own idea, explored 2026-07-12
 
@@ -127,12 +127,16 @@ Even more central now than under the tracker concept — the database *is* the p
 
 ## Documents
 
-- **Build Plan** — not yet created. Write once ready to move from research to build, mirroring [[Ventures/Meridian/Build Plan|Meridian's Build Plan]] (step-by-step, no coding experience assumed).
-- **Super Prompt** — not yet created. Write once MVP scope above is finalized and a tech stack is chosen, mirroring [[Ventures/Meridian/Super Prompt|Meridian's Super Prompt]] (paste into a fresh Claude Code session to build). Should encode: the lookup/repository MVP scope (not the tracker), the dampness-wedge content focus, the Western-first audience/tone, the data-sourcing + practitioner-review pipeline, and the "deterministic-data + AI-interpreter" principle (AI explains/personalizes pre-verified TCM data, never invents a food's property).
+- [[Ventures/TCM App/Build Plan|Build Plan]] — Angela's step-by-step, no coding experience assumed (2026-07-13)
+- [[Ventures/TCM App/Super Prompt|Super Prompt]] — paste into a fresh Claude Code session in `C:\Users\Angela\Projects\tcm-app` to build (2026-07-13)
+
+**Key build decisions locked in:** same stack as Meridian (Next.js/Supabase/Vercel/Claude API) for consistency and reused accounts; **no user accounts in v1** (constitution quiz result + favorites stored in the browser via localStorage — removes signup friction and personal-data exposure); **content authored in a spreadsheet** and imported via a script rather than a custom admin UI; **SEO-first** architecture since organic search is a real acquisition channel for a reference tool; AI used only for a one-time, cached per-ingredient "explainer" paragraph generated at import time — never a live call on the read path.
 
 ## Tasks
-- [ ] Run the TikTok content test (see [[Content/Ideas/TCM food properties series]]) before committing further research/build time
-- [ ] Once validated: write Build Plan + Super Prompt (see Documents above)
+- [ ] Run the TikTok content test (see [[Content/Ideas/TCM food properties series]]) — can run in parallel with the build, not a gate before starting
+- [ ] Step 0 of the Build Plan: create a new Supabase project (separate from Meridian's)
+- [ ] Fill in the ~15-20 entry starter spreadsheet once Claude Code provides the column template in Phase 2
+- [ ] Bring the TCM practitioner reviewer in early, per the Open Gaps section above
 
 ## Notes / progress
 - 2026-07-12: Pivoted from MyFitnessPal-style tracker to educational ingredient lookup/repository as the primary focus. Personalization (constitution quiz) stays; tracking/logging becomes a future layer added only if demand emerges, not an assumed v2.
