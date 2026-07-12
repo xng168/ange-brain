@@ -4,7 +4,7 @@
 
 Educational TCM ingredient repository app — search or browse an ingredient to see its Traditional Chinese Medicine assessment (thermal nature, five flavors, organ affinity, symptom relevance), personalized against your TCM body constitution. Tracking/logging is a possible future layer, added only if user demand shows up — it is not the initial focus.
 
-- **Stage:** Spec'd — build plan and super prompt ready (2026-07-13). Not yet built. **Pivoted 2026-07-12** from a MyFitnessPal-style food tracker to an educational ingredient lookup/repository, with personalization (not tracking) as the differentiator. Validate via the TikTok content test in parallel with building — see Build Plan.
+- **Stage:** Building — Phase 1 done (2026-07-13). Project scaffolded at `C:\Users\Angela\Projects\tcm-app` (Next.js/TypeScript/Tailwind/shadcn), landing page + waitlist form (Supabase-backed) built, tested locally, and committed to git. Not yet deployed — needs a Supabase project created and connected (see Tasks). **Pivoted 2026-07-12** from a MyFitnessPal-style food tracker to an educational ingredient lookup/repository, with personalization (not tracking) as the differentiator.
 - **Model:** TBD, and genuinely open — a reference/lookup tool doesn't support a subscription as naturally as a tracker does (see Open gaps below). Needs its own pricing thesis, not a carryover of the tracker-era subscription assumption.
 - **Origin:** Angela's own idea, explored 2026-07-12
 
@@ -133,12 +133,18 @@ Even more central now than under the tracker concept — the database *is* the p
 **Key build decisions locked in:** same stack as Meridian (Next.js/Supabase/Vercel/Claude API) for consistency and reused accounts; **no user accounts in v1** (constitution quiz result + favorites stored in the browser via localStorage — removes signup friction and personal-data exposure); **content authored in a spreadsheet** and imported via a script rather than a custom admin UI; **SEO-first** architecture since organic search is a real acquisition channel for a reference tool; AI used only for a one-time, cached per-ingredient "explainer" paragraph generated at import time — never a live call on the read path.
 
 ## Tasks
-- [ ] Run the TikTok content test (see [[Content/Ideas/TCM food properties series]]) — can run in parallel with the build, not a gate before starting
-- [ ] Step 0 of the Build Plan: create a new Supabase project (separate from Meridian's)
-- [ ] Fill in the ~15-20 entry starter spreadsheet once Claude Code provides the column template in Phase 2
+- [x] Phase 1 built: project scaffolded, landing page + waitlist form, tested locally, committed to git (2026-07-13)
+- [ ] **Create a new Supabase project** (separate from Meridian's) — Supabase dashboard -> New Project
+- [ ] Copy the Project URL + anon key (Project Settings -> API) into `C:\Users\Angela\Projects\tcm-app\.env.local` (copy from `.env.local.example` first)
+- [ ] Run `supabase/schema.sql` once in the Supabase SQL Editor (creates the waitlist table)
+- [ ] Test locally: `npm run dev` in that folder, open `http://localhost:3000`, submit the waitlist form, confirm a row lands in Supabase
+- [ ] Once tested: push to a new GitHub repo and connect it to Vercel (same env vars added in Vercel's project settings) to get a live link
+- [ ] Run the TikTok content test (see [[Content/Ideas/TCM food properties series]]) once the link is live — can run in parallel with later phases
+- [ ] Continue the build: open `C:\Users\Angela\Projects\tcm-app` in VSCode, start Claude Code, say "Read PROGRESS.md and continue with the next phase" for Phase 2 (data model + spreadsheet import pipeline)
 - [ ] Bring the TCM practitioner reviewer in early, per the Open Gaps section above
 
 ## Notes / progress
 - 2026-07-12: Pivoted from MyFitnessPal-style tracker to educational ingredient lookup/repository as the primary focus. Personalization (constitution quiz) stays; tracking/logging becomes a future layer added only if demand emerges, not an assumed v2.
+- 2026-07-13: Phase 1 built and committed — Next.js/TypeScript/Tailwind/shadcn scaffolded, landing page with 3 ingredient teasers, Supabase-backed waitlist form (insert-only RLS), disclaimer footer, `npm run build` verified working. **Found and fixed a real environment issue:** Next.js 16's default Turbopack production build crashes natively on this machine — `dev`/`build` scripts were pinned to `--webpack`, which builds and runs cleanly. Documented in the project's own `DECISIONS.md` in case it resurfaces on Meridian too.
 
 Related: [[Ventures/index|Ventures]], [[Ventures/Meridian/index|Meridian]]

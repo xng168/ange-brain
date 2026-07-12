@@ -9,13 +9,15 @@ Active tasks, open questions, and decisions pending.
 - [ ] Decide whether to post a build-in-public teaser on TikTok once the Phase 1 waitlist page is live.
 - [ ] Re-run `gbrain import "C:\Users\Angela\Documents\Obsidian\Brain"` — the 2026-07-12 evening import failed twice with "Timed out waiting for PGLite lock" (another session holds the gbrain database). New Astrology App notes aren't in semantic search until this runs.
 
-## TCM App (pre-build)
+## TCM App (building)
 - [x] Market research, competitor landscape, data-sourcing strategy, target audience, and niche-wedge decisions captured in [[Ventures/TCM App/index|TCM App]] (2026-07-12)
 - [x] Pivoted from food tracker to educational ingredient lookup/repository (2026-07-12)
 - [x] Build Plan + Super Prompt written (2026-07-13) — see [[Ventures/TCM App/Build Plan|Build Plan]]
-- [ ] Create project folder `C:\Users\Angela\Projects\tcm-app` + new Supabase project, then paste the Super Prompt into Claude Code to start Phase 1
-- [ ] Run the TikTok content test in parallel with the build (not a gate) — see [[Content/Ideas/TCM food properties series]]
-- [ ] Fill in the starter ingredient spreadsheet once Phase 2 provides the column template, and loop in the TCM practitioner reviewer early
+- [x] Phase 1 built and committed: project scaffolded at `C:\Users\Angela\Projects\tcm-app`, landing page + waitlist form, tested locally (2026-07-13)
+- [ ] **Your turn:** create a new Supabase project and add its URL + anon key to `.env.local` — exact steps in [[Ventures/TCM App/index|TCM App]] Tasks
+- [ ] Push to GitHub + connect Vercel for a live link, then run the TikTok content test — see [[Content/Ideas/TCM food properties series]]
+- [ ] Continue with Claude Code for Phase 2 (data model + spreadsheet import pipeline) once Supabase is connected
+- [ ] Loop in the TCM practitioner reviewer early, per the Open Gaps section in the venture note
 
 ## Content (Ange.beee)
 - [ ] Edit black sesame video for TikTok
