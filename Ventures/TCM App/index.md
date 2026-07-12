@@ -89,6 +89,18 @@ Ranked by fit with the Western-wellness-first audience decision and current tren
 - **Human review layer:** licensed TCM/Chinese medicine practitioner sign-off before publishing any entry — legitimacy, liability protection, and a marketing asset ("reviewed by licensed practitioners").
 - **Proposed schema per food entry:** thermal nature, five flavors, organ/meridian affinity, actions/indications, contraindications, source citation(s), confidence/consensus level (since classical and clinic sources sometimes disagree).
 
+## Open gaps before this becomes a Super Prompt (2026-07-12)
+
+- **Symptom-correlation risk:** showing "your bloating correlates with X" off thin data is pseudo-scientific and undercuts the credibility positioning. Ship the symptom journal as a plain log in v1 (no claimed correlations); hold real correlation analysis for v2 once there's enough data per user.
+- **AI boundary rule (non-negotiable, mirrors Meridian's rule 1):** the reviewed food database is the only source of truth for TCM properties. The AI explains and personalizes; it never asserts a property that isn't in the database. Higher stakes than Meridian — a wrong AI guess here is actionable health advice, not a vague horoscope.
+- **Moat is earned, not present at launch:** "nobody's built this yet" won't hold — Ayurveda comps show competitors show up fast once a category proves out. Real moat = proprietary longitudinal symptom-food data (compounds with scale, live in v2+), the Ange.beee trust/distribution head start, and eventually a practitioner network. Launch positioning should lean on trust/credibility, not first-mover.
+- **Retention mechanics need more than Meridian needed:** Meridian is occasional-use (web app was fine); a food tracker lives or dies on a daily logging habit, which needs push notifications — likely a PWA with notifications or a native wrap sooner than Meridian required.
+- **Monetization still undefined:** need an actual pricing hypothesis (MyFitnessPal Premium and the Ayurveda comps cluster ~$7–20/mo) and a decision on revenue beyond subscription (affiliate on recommended ingredients/teas, practitioner-booking fees) plus an explicit free-vs-paid feature split.
+- **Legal/regulatory needs real attention:** a symptom journal is health-adjacent personal data — different privacy bar than Meridian's birth data. Need a proper privacy policy, actual legal review of TCM disclaimer language, and an entity decision before Phase 1, not after.
+- **Bring the practitioner in earlier:** currently scoped as pre-launch QA only. An early advisor speeds up data compilation and gives "developed with a licensed TCM practitioner" as a credibility line from the first TikTok post, not just the app-store listing.
+- **Distribution plan beyond organic TikTok:** fine for validation, but eventual launch needs an ASO pass and probably a waitlist mechanic like Meridian's.
+- **No success metric defined yet for the content test:** decide before posting — save rate and comment sentiment are the leading indicators, not follower count.
+
 ## Documents
 
 - **Build Plan** — not yet created. Write once ready to move from research to build, mirroring [[Ventures/Meridian/Build Plan|Meridian's Build Plan]] (step-by-step, no coding experience assumed).
