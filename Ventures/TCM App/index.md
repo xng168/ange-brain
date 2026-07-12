@@ -30,6 +30,40 @@ Food/symptom tracker app that layers Traditional Chinese Medicine food-property 
 
 **Risks:** health-claim language risks App Store/regulatory scrutiny (frame as "traditional wellness insight," not medical advice); TCM food-property data isn't standardized across sources; audience split between diaspora users (want accuracy) and Western wellness audience (want quick/vibes content).
 
+**Target audience decision (2026-07-12):** Western wellness audience first, broaden to diaspora/general TCM audience later. Validating via a TikTok content test first — see [[Content/Ideas/TCM food properties series]] and the black-sesame-video edit task in [[Open Items]].
+
+## Candidate niche wedges (2026-07-12 research)
+
+Ranked by fit with the Western-wellness-first audience decision and current trend strength:
+
+1. **Dampness / gut health / bloating** (strongest fit) — digestive health products market is $60.4B (2025) → projected $124.9B by 2034; 37% of Americans now seek digestive-health benefits from diet (up from 30% in 2022); gut-health product launches up 61% 2024→2025. TCM's "dampness" (湿气) framework already maps onto this conversation almost 1:1, and TCM-flavored dampness/bloating content is already circulating organically on TikTok (gua sha for digestion, "how to clear dampness"). Best overlap of TCM authenticity × an already-massive, already-trending Western wellness category, and it stays food-first rather than sliding into diagnostic territory.
+2. **Cycle syncing / hormone-aware eating** — huge existing conversation (#cyclesyncing has 285M+ TikTok views, search volume for "cycle syncing diet" doubled since 2022) but currently low-credibility: most creators cite no sources or credentials, and outlets (Time, peer-reviewed articles) are actively calling parts of it unsubstantiated. TCM has a genuine, citable food-therapy tradition here (warming foods around menstruation, classical tonics like 四物汤). Real opportunity to be the "credible, source-cited" entrant into a trend currently starved of one — but needs careful framing (cite classical/practitioner sources, avoid overclaiming efficacy) given the scrutiny the category is already under.
+3. **Postpartum confinement (坐月子 / zuo yue zi)** — narrower, shorter-lifecycle audience (pregnant/postpartum, ~30-40 day window per user) but proven crossover appeal and willingness to pay: a Western mom's 30-day Chinese confinement vlog went viral (2.9M views, largely Western audience praise), and confinement retreat centers (Boram NYC, Village SF) are already selling this to non-diaspora customers. High-intent, high-conversion, but works better as a specific program/content pillar inside a broader app than as the sole wedge, since it can't carry ongoing daily retention past the postpartum window.
+4. **Qi/Yang deficiency, cold hands & feet, fatigue** — real interest exists (TikTok "adrenal fatigue" discovery content) but overlaps with "adrenal fatigue," a concept conventional-medicine sources actively flag as contested/harmful-trend territory. More reputational risk, weaker signal than the above three — deprioritize as a lead wedge.
+
+**Working recommendation:** lead with dampness/gut health/bloating as the MVP wedge (biggest market, cleanest TCM-to-Western-trend mapping, lowest regulatory/credibility risk), with cycle syncing as a strong second content pillar once the credibility positioning is dialed in, and postpartum confinement as a later feature/program rather than the initial focus.
+
+## Feature ideas (2026-07-12 brainstorm)
+
+**Core loop (beyond static education):**
+- Symptom-based lookup — searchable "what to eat when..." for flu, bloating, low energy, cramps, insomnia, etc. (directly maps to the content test)
+- Body constitution quiz (9 TCM types) as onboarding — proven pattern from Ayurveda apps' dosha quizzes and from direct competitors (TCM Food Therapy, Qi Health); personalizes recommendations from day one
+- Seasonal tips tied to the 24 solar terms (二十四节气) — a TCM-native seasonal calendar that's novel and shareable for a Western audience, good push-notification/retention hook
+
+**Differentiating (closes whitespace nothing else covers):**
+- Symptom journal with trend tracking — log recurring symptoms (cold feet, poor sleep, bloating) alongside food and see correlations over time; none of the Ayurveda or mainstream trackers do this longitudinal view
+- Food pairing/combination cautions — TCM-specific "don't combine X with Y" guidance, not present in any mainstream tracker
+- Photo/barcode scan → TCM property breakdown (Yuka-style) — bigger build lift (needs food recognition + packaged food data) but a strong differentiator if feasible later
+
+**Growth/retention:**
+- Shareable quiz results (constitution type) — viral, TikTok-native, same mechanic as MBTI/astrology quiz shares; plugs straight into the Ange.beee distribution channel
+- AI chat assistant for "ask about any food or symptom" — cheap to build via LLM + curated dataset (RAG), and rides the "40% of nutrition apps will have an AI coach by end of 2026" trend from the market research
+- Therapeutic recipes (congee, herbal soups) tied to symptom/season/constitution — same retention driver that works for Prana/AyuRythm in the Ayurveda space
+
+**Possible monetization beyond subscription:**
+- Licensed TCM practitioner directory/telehealth booking (affiliate or booking-fee revenue) — also doubles as the human review layer already planned for data accuracy
+- Dual "simplified" vs. "traditional depth" content modes — lets the app serve the Western-first audience now without foreclosing the diaspora audience later
+
 ## Data sourcing strategy (2026-07-12)
 
 - **Primary/classical texts:** 本草纲目 *Compendium of Materia Medica* (Li Shizhen, Ming dynasty) — full text public domain/CC BY-SA 4.0 at [Chinese Text Project](https://ctext.org/datawiki.pl?if=en&res=588089&remap=gb); 黄帝内经 *Huangdi Neijing* for foundational theory. These are the ur-sources almost every modern hot/cold food chart traces back to.
