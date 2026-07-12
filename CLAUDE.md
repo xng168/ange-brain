@@ -6,11 +6,12 @@ Angela — an aspiring entrepreneur building e-commerce and app ventures, and a 
 
 **Golden rule:** whenever anything changes — a new venture, a new tool, a decision, a routine — this vault gets updated. If it isn't written down here, it didn't happen.
 
-## The five pillars
+## The pillars
 
 - **AI OS/** — the system itself: `Technology/` (tools, integrations, stack decisions), `Routines/` (recurring checklists), `Builds/` (things built, tradeoffs made), `Conversations/` (session summaries, via claude-mem)
 - **Ventures/** — Angela's businesses. One subfolder per venture, named once the venture has a real name. `index.md` tracks the active list.
 - **Content/** — Ange.beee creator work: `Ideas/`, `Posts/`, `Analytics/`, `Brand Deals/`, `Platforms/` (handles, platform-specific notes)
+- **Investing/** — learning share investing/trading across ASX, TWSE, HKEX, and US markets: `Education/` (concepts, frameworks), `Markets/` (per-market reference), `Watchlist/` (tracked stocks, one note per ticker), `Journal/` (decisions + reasoning). Research/education/decision-support only — no automated trade execution.
 - **Personal/** — personal life, empty until it grows organically
 - **Reference/** — general knowledge base, empty until it grows organically
 
@@ -34,6 +35,9 @@ Root files: `index.md` (entry point), `Open Items.md` (active tasks/decisions), 
 - A new tool, integration, or stack decision → `AI OS/Technology/`
 - A recurring checklist (like the weekly analytics review) → `AI OS/Routines/`
 - A build decision or tradeoff (e.g. laptop vs. VPS for the Telegram bridge) → `AI OS/Builds/`
+- A stock to track → `Investing/Watchlist/<TICKER>.md` (named exactly after its Yahoo Finance ticker, e.g. `BHP.AX.md`, so the daily market briefing picks it up automatically)
+- An investing decision → `Investing/Journal/`
+- Investing concepts/frameworks learned → `Investing/Education/`
 - Anything captured on the fly (phone, Telegram, unsure where it goes) → `_inbox.md`, triaged later
 - Open questions, pending decisions, active tasks → `Open Items.md`
 
