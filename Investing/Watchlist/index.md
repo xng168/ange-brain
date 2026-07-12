@@ -9,6 +9,7 @@ Name each note exactly after its Yahoo Finance ticker so the daily [[AI OS/Routi
 - `0700.HK.md` (HKEX)
 - `2330.TW.md` (TWSE)
 
-_(empty for now — add your first stock whenever you're ready)_
+## Tracked
+- [[Investing/Watchlist/TSM|TSM]] — Taiwan Semiconductor (NYSE ADR)
 
 Related: [[Investing/index]]
