@@ -1,0 +1,8 @@
+# Log
+
+Running record of setup and major activity.
+
+## 2026-07-12
+- Vault initialized at `C:\Users\Angela\Documents\Obsidian\Brain`.
+- Phase 0 complete: git, node, npm, python, bun, ollama, Obsidian verified; nomic-embed-text pulled.
+- Phase 1: five-pillar folder structure created.

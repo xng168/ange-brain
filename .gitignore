@@ -1,0 +1,9 @@
+# Never sync these — local-only, sensitive, or machine-specific
+_sources/
+_secrets/
+_memory/
+*.env
+.env
+secrets.env
+.obsidian/workspace*
+.obsidian/cache
