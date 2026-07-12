@@ -7,7 +7,7 @@ Active tasks, open questions, and decisions pending.
 - [ ] Before launch: confirm the name — check meridian .com/.app domain + TikTok/IG handle availability (a qualifier like "Meridian App" may be needed; "meridian" alone is a busy word).
 - [ ] Create build accounts: Vercel + Supabase (both "sign in with GitHub"), Anthropic Console (needs a card, ~USD $5 credit) — see [[Ventures/Meridian/Build Plan|Build Plan]] Step 0.
 - [ ] Decide whether to post a build-in-public teaser on TikTok once the Phase 1 waitlist page is live.
-- [ ] Re-run `gbrain import "C:\Users\Angela\Documents\Obsidian\Brain"` — the 2026-07-12 evening import failed twice with "Timed out waiting for PGLite lock" (another session holds the gbrain database). New Astrology App notes aren't in semantic search until this runs.
+- [x] Fixed 2026-07-13: gbrain sync had silently fallen behind since the "Timed out waiting for PGLite lock" failures (28/64 vault files indexed — everything from Meridian, TCM App, and Investing updates was missing from semantic search). A full re-sync via `mcp__gbrain__sync_brain(full=true)` caught it up to 64/64, 100% embed coverage. Root cause: the incremental sync checkpoint got stuck after the lock timeouts and didn't self-recover the way the git sync layer does — worth remembering to run a full sync occasionally, or after any "PGLite lock" error.
 
 ## TCM App (building)
 - [x] Market research, competitor landscape, data-sourcing strategy, target audience, and niche-wedge decisions captured in [[Ventures/TCM App/index|TCM App]] (2026-07-12)
