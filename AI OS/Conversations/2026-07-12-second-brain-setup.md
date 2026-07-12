@@ -19,8 +19,28 @@
 - Social media: Metricool free tier chosen over Buffer, Later, Planable (best free analytics + TikTok/IG combo)
 - Skills: Enable claude-mem + Marketing Skills by default; keep GStack, ECC, C-Level Advisor disabled for on-demand use only (token efficiency)
 
+## Session 2 Update (Phase 10 In Progress)
+
+### Completed
+- **Bun 1.3.14** installed successfully via winget (was missing in Phase 0, now on PATH after VSCode restart)
+- **Phase 10 (Telegram bridge)** partially complete:
+  - Created Telegram bot `angela_secondbrain_bot` via BotFather
+  - Bot token and chat ID (`7098413814`) saved to `secrets.env`
+  - Built Python daemon script (`telegram_bridge.py`) that:
+    - Listens for new messages via Telegram bot API polling
+    - Pipes messages to Claude for semantic processing
+    - Saves replies back to vault and back to Telegram
+  - **Fixed two critical bugs:**
+    1. Windows subprocess invocation: changed to shell mode so `claude.cmd` shim resolves correctly
+    2. Crash safety: added progress logging to prevent re-processing old messages after restarts
+  - **Currently testing:** sent test message to bot, monitoring for successful reply via log file watcher (background task running)
+
+### Key Decisions This Session
+- TCP socket architecture replaced with simpler direct polling (Telegram bot API is more reliable on Windows than maintaining long-lived sockets)
+- Progress logged to `_sources/telegram_bridge.log` with simple line format ("Replied: ...") for easy shell monitoring
+
 ## Next Steps
-1. **Phase 10** (Telegram bridge): Create bot via BotFather, save token to secrets.env, build Hermes-style bridge with Windows Task Scheduler auto-start at logon
-2. **Phase 11**: Install/enable skills deliberately via /plugins dialog
+1. **Phase 10 completion** (this session): Verify telegram reply lands in log, then schedule daemon as Windows background task (nssm or Task Scheduler)
+2. **Phase 11**: Install/enable skills deliberately via /plugins dialog  
 3. **Phase 12**: Interview Angela on ventures (stage, model, partners, tracking needs) and content (niches, cadence, monetization, workflow); create starter notes
 4. **Final**: Run checklist, commit everything, provide first three actions for daily use
