@@ -21,6 +21,9 @@ Active tasks, open questions, and decisions pending.
 - [ ] Edit black sesame video for TikTok
 - [ ] Film/post the TCM food properties series (ginger hot/cold, flu-symptom foods) — cheap validation test for [[Ventures/TCM App/index|TCM App]] before building anything; see [[Content/Ideas/TCM food properties series]]
 
+## Sync
+- [x] 2026-07-13 00:57: one `git pull --rebase` sync attempt failed (likely a timing collision between Obsidian Git's 10-min auto-commit and the 20-min sync.ps1 task during a heavy editing session). Self-healed on the next scheduled run 5 min later — confirmed no data loss, vault fully matches GitHub. Not fixed proactively since it's a rare, self-recovering race; revisit only if it starts happening frequently.
+
 ## Setup (in progress)
 - [ ] Vault setup phases 0–12 (see [[log]] for progress)
 - [ ] Gmail/Google Calendar are confirmed connected and healthy (verified via `claude mcp list`), but their tools still aren't appearing inside this specific Claude Code (VSCode) session, even after a window restart. gbrain's MCP tools DID become available mid-session (used successfully during setup), so this looks specific to the pre-existing claude.ai cloud connectors rather than a general MCP-loading issue. Starting a brand-new session should resolve it — check next time you open Claude Code.
