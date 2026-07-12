@@ -2,9 +2,10 @@
 
 Active tasks, open questions, and decisions pending.
 
-## Astrology App (pre-build)
-- [ ] Pick a real name for the app (then rename `Ventures/Astrology App/` and update links). Check .com/.app domain + TikTok/IG handle availability at the same time.
-- [ ] Create build accounts: Vercel + Supabase (both "sign in with GitHub"), Anthropic Console (needs a card, ~USD $5 credit) — see [[Ventures/Astrology App/Build Plan|Build Plan]] Step 0.
+## Meridian (pre-build)
+- [x] Working name chosen: **Meridian** (2026-07-12). Vault folder renamed to `Ventures/Meridian/`, all links updated.
+- [ ] Before launch: confirm the name — check meridian .com/.app domain + TikTok/IG handle availability (a qualifier like "Meridian App" may be needed; "meridian" alone is a busy word).
+- [ ] Create build accounts: Vercel + Supabase (both "sign in with GitHub"), Anthropic Console (needs a card, ~USD $5 credit) — see [[Ventures/Meridian/Build Plan|Build Plan]] Step 0.
 - [ ] Decide whether to post a build-in-public teaser on TikTok once the Phase 1 waitlist page is live.
 - [ ] Re-run `gbrain import "C:\Users\Angela\Documents\Obsidian\Brain"` — the 2026-07-12 evening import failed twice with "Timed out waiting for PGLite lock" (another session holds the gbrain database). New Astrology App notes aren't in semantic search until this runs.
 

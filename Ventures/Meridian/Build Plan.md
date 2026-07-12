@@ -1,6 +1,6 @@
-# Astrology App — Build Plan
+# Meridian — Build Plan
 
-Step-by-step plan for building the app with zero coding experience, using Claude Code as the builder. Read this first; the actual build instructions Claude follows are in [[Ventures/Astrology App/Super Prompt|Super Prompt]].
+Step-by-step plan for building the app with zero coding experience, using Claude Code as the builder. Read this first; the actual build instructions Claude follows are in [[Ventures/Meridian/Super Prompt|Super Prompt]].
 
 ## The approach in one paragraph
 
@@ -19,13 +19,13 @@ You are not going to write code — Claude Code writes all of it. Your job is fo
 
 ## Step 1 — Create the project (5 min)
 
-1. Create folder `C:\Users\Angela\Projects\astrology-app` — **not inside the Brain vault**; the vault is for notes, apps live in their own folders.
+1. The project folder is `C:\Users\Angela\Projects\meridian` (created 2026-07-12) — **not inside the Brain vault**; the vault is for notes, apps live in their own folders. If it ever goes missing, just make a normal folder there in File Explorer.
 2. Open that folder in VSCode (File → Open Folder).
 3. Start a Claude Code session there.
 
 ## Step 2 — Paste the super prompt
 
-Copy everything below the `---` line in [[Ventures/Astrology App/Super Prompt|Super Prompt]] and paste it as your first message. Claude will build **Phase 1 only** (project skeleton + landing page + email waitlist) and then stop and tell you how to look at it.
+Copy everything below the `---` line in [[Ventures/Meridian/Super Prompt|Super Prompt]] and paste it as your first message. Claude will build **Phase 1 only** (project skeleton + landing page + email waitlist) and then stop and tell you how to look at it.
 
 ## Step 3 — Test each phase like a user
 
@@ -70,4 +70,4 @@ Give the link to 10–20 friends (ideally a mix who care about astrology, 八字
 - **Fortune-telling tone rules** are baked into the super prompt: reflective and empowering, never fatalistic; no health/death/pregnancy predictions; not medical/financial/legal advice. This protects users *and* future App Store approval.
 - **Cost control** is designed in: readings are generated once and cached (yearly once a year, daily once a day), only chat is metered, cheap model for small texts. Development cost ≈ a few dollars; running cost near zero until you have real users.
 
-Related: [[Ventures/Astrology App/index|Astrology App]] · [[Ventures/Astrology App/Super Prompt|Super Prompt]]
+Related: [[Ventures/Meridian/index|Meridian]] · [[Ventures/Meridian/Super Prompt|Super Prompt]]

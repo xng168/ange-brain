@@ -1,8 +1,9 @@
-# Astrology App
+# Meridian
 
 Personalised astrology and self-knowledge app: fortune telling from your birth chart — **Western astrology + Chinese BaZi (八字)** — combined with your **personality type** (16-type / MBTI-style). Guidance from the stars and your fortune, personalised to who you actually are.
 
-- **Stage:** Spec'd — build plan and super prompt ready (2026-07-12). Not yet named, not yet built.
+- **Name:** Meridian — working name chosen 2026-07-12. Fits both worlds: the celestial meridian in Western astronomy, 子午 in Chinese metaphysics. Confirm domain/handle availability before launch.
+- **Stage:** Spec'd — build plan and super prompt ready (2026-07-12). Not yet built.
 - **Model:** Freemium — free profile + daily card; paid subscription for deep readings and unlimited AI chat.
 - **Objective:** Know yourself → better relationships. Guidance for the year, month, and day.
 
@@ -18,7 +19,7 @@ The East-meets-West gap: Co-Star and Dimensional are Western-only. Good BaZi app
 4. Guidance: daily card / affirmation, monthly direction, yearly outlook
 5. AI chat to explore your fortune and personality (rate-limited on free tier)
 
-**Deliberately cut from v1:** social/friends & compatibility (Dimensional's moat — needs a user base to be useful), push notifications, native App Store apps. All in v2 backlog inside [[Ventures/Astrology App/Super Prompt|Super Prompt]].
+**Deliberately cut from v1:** social/friends & compatibility (Dimensional's moat — needs a user base to be useful), push notifications, native App Store apps. All in v2 backlog inside [[Ventures/Meridian/Super Prompt|Super Prompt]].
 
 ## Competitor research
 
@@ -32,17 +33,17 @@ The East-meets-West gap: Co-Star and Dimensional are Western-only. Good BaZi app
 
 - **Web app first, not App Store** — instant shipping, shareable link for TikTok, no $99 Apple fee or review queue. Wrap with Capacitor for stores only after traction.
 - **Deterministic engine + AI interpreter** — charts are computed by real astronomy/calendar libraries; the AI only interprets structured chart data. AI never computes or invents chart positions.
-- **Stack:** Next.js + TypeScript + Tailwind, Supabase (auth + database), Vercel hosting, Claude API for readings/chat. Details in [[Ventures/Astrology App/Super Prompt|Super Prompt]].
+- **Stack:** Next.js + TypeScript + Tailwind, Supabase (auth + database), Vercel hosting, Claude API for readings/chat. Details in [[Ventures/Meridian/Super Prompt|Super Prompt]].
 - **Safety/tone:** empowering and reflective, never fatalistic; no death/health/pregnancy predictions; "for reflection and entertainment" disclaimer (also required for app stores later).
 
 ## Documents
 
-- [[Ventures/Astrology App/Build Plan|Build Plan]] — Angela's step-by-step, no coding experience assumed
-- [[Ventures/Astrology App/Super Prompt|Super Prompt]] — paste into a fresh Claude Code session in a new project folder to build
+- [[Ventures/Meridian/Build Plan|Build Plan]] — Angela's step-by-step, no coding experience assumed
+- [[Ventures/Meridian/Super Prompt|Super Prompt]] — paste into a fresh Claude Code session in a new project folder to build
 
 ## Open questions
 
-- Real name for the app (then rename this folder) — tracked in [[Open Items]]
+- Confirm "Meridian" as the final name — check .com/.app domain + TikTok/IG handle availability, tracked in [[Open Items]]
 - Pricing point for premium (~USD $7–10/mo hypothesis, validate later)
 
 Related: [[Ventures/index|Ventures]] · [[Content/index|Content]] (build-in-public marketing)

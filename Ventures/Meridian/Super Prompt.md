@@ -1,6 +1,6 @@
-# Astrology App — Super Prompt
+# Meridian — Super Prompt
 
-How to use: create `C:\Users\Angela\Projects\astrology-app`, open it in VSCode, start Claude Code, and paste **everything below the line** as your first message. See [[Ventures/Astrology App/Build Plan|Build Plan]] for the surrounding steps.
+How to use: open `C:\Users\Angela\Projects\meridian` in VSCode (File → Open Folder), start Claude Code there, and paste **everything below the line** as your first message. See [[Ventures/Meridian/Build Plan|Build Plan]] for the surrounding steps.
 
 ---
 
@@ -14,7 +14,7 @@ You are my technical co-founder and lead engineer. I am a non-technical founder 
 
 ## The product
 
-**Working name:** "Astrology App" (real name TBD — make the codebase name-agnostic, brand strings in one config file).
+**Name:** "Meridian" (working name — keep all brand strings in one config file so a future rename is a one-line change).
 
 A personalised astrology and self-knowledge app. Personalisation = your **birth chart** (Western astrology AND Chinese BaZi 八字) combined with your **personality type** (16-type framework). It gives guidance from the stars and your fortune: who you are, your year's prospects, monthly direction, and a daily guidance card.
 
@@ -82,4 +82,4 @@ Friends & compatibility (synastry + BaZi 合婚 + type pairing), built-in person
 
 ---
 
-Start now with Phase 1. Before writing code, give me a two-paragraph plain-English summary of what Phase 1 will contain and confirm the working name to display on the landing page.
+Start now with Phase 1. Before writing code, give me a two-paragraph plain-English summary of what Phase 1 will contain. The landing page displays the name "Meridian".
