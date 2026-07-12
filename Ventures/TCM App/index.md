@@ -109,6 +109,22 @@ Even more central now than under the tracker concept — the database *is* the p
 - **No success metric defined yet for the content test:** decide before posting — save rate and comment sentiment are the leading indicators, not follower count.
 - **Tracking/personalization-over-time is parked, not cancelled.** If usage data later shows people want to log symptoms/food over time, revisit the original tracker concept (and its own open gaps: symptom-correlation risk, push-notification retention, health-data privacy bar) as a v2+ layer — don't build it speculatively before then.
 
+## Revenue ideas & cost forecast (2026-07-12)
+
+**Revenue ideas, ranked:**
+1. Freemium content depth — free basic thermal-nature lookup, one-time "Pro" unlock for full detail (five flavors, organ affinity, contraindications, recipes, personalized digest). Fits a reference app better than recurring subscription.
+2. **Cross-venture synergy** — if [[Ventures/Supplement Brand/index|Supplement Brand]] or [[Ventures/Beauty Brand/index|Beauty Brand]] end up selling anything TCM-adjacent (herbs, teas), the app becomes a native distribution channel for Angela's own commerce instead of losing margin to third-party affiliates.
+3. B2B licensing of the practitioner-verified database to other apps/wearables/recipe platforms once it's mature — high-margin, doesn't depend on consumer scale.
+4. Practitioner directory/booking commission — doubles as the human review relationship already planned.
+5. Sponsored ingredient features — needs clear "sponsored" labeling or it undercuts the trust positioning.
+- **Deprioritized: banner/display ads** — cheapens the "curated trust" brand the whole positioning depends on.
+
+**Cost forecast:**
+- One-time to reach a validated MVP: roughly **AUD $600–$5,000**, dominated by the practitioner review fee (~15-30 hrs reviewing ~150-300 MVP entries; clinic-employee TCM practitioner pay is ~AUD $35-40/hr but freelance consulting review work is more realistically $80-150/hr — get real quotes, don't anchor on the low end). Everything else (books, domain, design assets) is under a few hundred dollars combined; the AI-assisted build itself is already covered by the existing Claude subscription.
+- Recurring, early stage: **under $50/month** — Vercel free Hobby tier is free but its terms bar commercial/revenue-generating use, so budget Pro ($20/mo) once live; Supabase free tier covers up to 50,000 MAUs (likely enough well past MVP, $25/mo on Pro if exceeded); AI API cost is ~$0 if personalization stays rule-based (constitution × ingredient tags) rather than an LLM call per lookup — same deterministic-data principle as Meridian. App store fees (Apple $99/yr, Google Play $25 one-time) deferred if web-first.
+- Also budget for later, not at MVP: trademark registration for the real brand name (a few hundred to ~$1,000+ AUD via IP Australia), and whether professional indemnity/business insurance is warranted once publishing health-adjacent content commercially.
+- **Bottom line:** infra is cheap enough that profitability isn't gated on scale — a handful of paying users covers hosting. The real cost and bottleneck is the practitioner's time to get the data right.
+
 ## Documents
 
 - **Build Plan** — not yet created. Write once ready to move from research to build, mirroring [[Ventures/Meridian/Build Plan|Meridian's Build Plan]] (step-by-step, no coding experience assumed).
