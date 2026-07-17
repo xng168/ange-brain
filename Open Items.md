@@ -19,6 +19,16 @@ Active tasks, open questions, and decisions pending.
 - [ ] Continue with Claude Code for Phase 2 (data model + spreadsheet import pipeline) once Supabase is connected
 - [ ] Loop in the TCM practitioner reviewer early, per the Open Gaps section in the venture note
 
+## Mandarin Kids App (pre-build)
+- [x] Imported the claude.ai web market-research session into the vault and spec'd the venture (2026-07-18) — see [[Ventures/Mandarin Kids App/index|Mandarin Kids App]]
+- [x] Build Plan + Super Prompt written (2026-07-18)
+- [x] **Corrected the platform:** research said native SwiftUI (impossible on Windows) → decided web-first offline PWA on the existing Next.js/Vercel stack, native wrap deferred
+- [ ] **Decide two content-schema questions** before recording audio: simplified vs. traditional characters, pinyin vs. zhuyin (schema holds both; just pick the v1 default — recommend simplified + pinyin)
+- [ ] Draft the ~150-word curriculum and get a native speaker to sanity-check the list + ordering
+- [ ] Line up a native Mandarin speaker to record ~150–170 audio clips (the real bottleneck) + choose a consistent image source
+- [ ] Create `C:\Users\Angela\Projects\mandarin-kids-app`, open in VSCode, start Claude Code, paste the Super Prompt → Phase 1 (skeleton + installable offline PWA shell + landing page)
+- [ ] Deploy Phase 1 to Vercel early for a TikTok-bio link; validate heritage-parent demand before building all phases
+
 ## Content (Ange.beee)
 - [ ] Edit black sesame video for TikTok
 - [ ] Film/post the TCM food properties series (ginger hot/cold, flu-symptom foods) — cheap validation test for [[Ventures/TCM App/index|TCM App]] before building anything; see [[Content/Ideas/TCM food properties series]]
