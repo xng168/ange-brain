@@ -63,6 +63,33 @@ Infra is ~$0; **content is the cost driver.**
 - **Fixed:** Vercel (free Hobby tier bars commercial use, so ~$20/mo Pro once monetising); no Apple/Google fees while web-first (Apple $99/yr + Google $25 one-time only if/when wrapped native). The AI-assisted build is covered by the existing Claude subscription.
 - **Realistic content spend:** ~$250 scrappy → ~$500–1,500 careful (most likely) → ~$6,000 if pro audio + custom illustration.
 
+## Competitors (research 2026-07-18)
+
+### Direct — Chinese/Mandarin-for-kids apps
+
+| App | Model | What it does well | Gap vs. this app |
+|---|---|---|---|
+| **Studycat (Learn Chinese)** | Subscription ("Fun Five" bundle); has offline mode | Kid-first design, ad-free, immersion-only audio (no English spoken), polished, ~400 characters taught | Subscription, not heritage-specific, general beginner content not tuned for heritage retention |
+| **iHuman Chinese** | **Lifetime one-time purchase** (~AUD $99.99 base, bundles ~AUD $125–157) | Deep content (1,300 characters), 130 leveled picture books, well-known in overseas-Chinese-parent circles | Not privacy/offline-first as a stated pitch; priced high for a single "unlock everything" purchase vs. this app's leaner scope; general learner not heritage-specific |
+| **Maomi Stars** | Subscription (typical) | Explicitly serves **heritage families**, supports both Mandarin + Cantonese, both Simplified + Traditional | Not positioned on offline/privacy/no-subscription; broader multi-language ambition than a focused wedge |
+| **Dot Languages** | Subscription (typical) | One of few apps offering Simplified/Traditional choice + **Zhuyin** for Taiwanese Mandarin learners, 14 interface languages | Same subscription-model complaint pattern as the rest; Mainland-Mandarin-centric despite the Zhuyin support |
+| **Gus on the Go** | One-time purchase (typical for this app) | Native-speaker audio, traditional characters + Hong Kong phrasing (Cantonese-focused sibling apps exist), ~90–1200 word vocab depending on version | Narrower scope (vocabulary-only, no personalization); not marketed on privacy/offline as the core pitch |
+| **DinoLingo** | Subscription | Ad-free, kid-safe, **no chat/pop-ups**, trusted by 100k+ families since 2010, broad language catalog including Cantonese | Not Mandarin-specialist (generalist across many languages so shallower per-language); still subscription-based |
+| **HelloChinese** | Freemium/subscription | Strong speech recognition, native-speaker video, good for casual practice | Not kid-focused, not offline-first, not heritage-specific |
+
+**The whitespace holds up:** iHuman proves parents will pay a one-time lifetime fee for Chinese-kids content (validates the pricing model), DinoLingo/Studycat prove "ad-free, no-chat, kid-safe" is a marketable pitch, and Maomi Stars/Dot Languages prove heritage-specific + Traditional/Zhuyin support is a real, served-but-not-dominated niche. **No competitor found combines all of: offline-first, one-time purchase, zero data collection stated as the core pitch, heritage-speaker focus, and deliberately anti-gamification design.** That combination is this app's actual differentiation — not any single feature alone.
+
+### Broader — reputable general language-learning brands (the category this app is implicitly compared against)
+
+| Brand | 2025-26 position | Model | Relevance |
+|---|---|---|---|
+| **Duolingo** | Category leader, ~$1.03B revenue 2025, highest usage by far | Freemium + "Super Duolingo" subscription | The gamification/streak model this app is explicitly positioned against; also owns **Duolingo ABC**, a free kids' reading app (adjacent, not Mandarin-for-heritage-kids, but worth knowing it exists if Duolingo ever extends into this niche) |
+| **Babbel** | #2 by revenue | Subscription (~$9/mo+), structured/curriculum-based | Sets the "credible, structured" bar; not kids-focused |
+| **Rosetta Stone** | Legacy leader since the 1990s | Historically lifetime-purchase-friendly; "Dynamic Immersion" method | Proves immersion-style (image-to-word, no translation) methodology works at scale — same principle this app's flashcards use |
+| **Busuu** | Mid-tier, community-driven | Subscription | Native-speaker correction community model — not directly relevant to an offline kids app, but shows demand for native-speaker-verified content, which this app bakes in structurally instead |
+
+**Read for positioning:** none of the reputable general-market leaders serve this niche (kids + heritage + offline + one-time-purchase) at all — they compete on adult-learner scale and engagement metrics, the opposite of this app's calm/offline/private stance. The real competitive set is the smaller Chinese-kids-app category above, not Duolingo-tier brands. Useful anyway as the credibility bar for production quality (audio, UX polish) and as "apps parents already trust the category of," which lowers the trust barrier for a new entrant.
+
 ## Open content decisions (settle during Phase 2, before recording audio)
 
 - **Simplified vs. Traditional characters.** Heritage audiences split (Mainland = simplified; Taiwan/HK/many Cantonese-heritage families = traditional). **Design the content schema to hold both hanzi forms per word from day one** — cheap now, expensive to retrofit. Ship simplified as the default, with traditional as a toggle if time allows.
