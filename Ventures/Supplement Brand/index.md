@@ -12,6 +12,9 @@ _(add tasks here as they come up)_
 ## Product formulations
 _(track formulation status and outcomes here)_
 
+## Conversations (imported 2026-07-18)
+- [[Ventures/Supplement Brand/conversations/2026-03-16-wellness-brand-domain-names|Health & wellness brand domain names]] — .com name brainstorm for a positivity/health-associated brand (may also apply to [[Ventures/Beauty Brand/index|Beauty Brand]]).
+
 ## Notes / progress
 _(running notes here)_
 

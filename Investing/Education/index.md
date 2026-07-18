@@ -31,4 +31,7 @@ Core concepts, growing as you learn. Ask me anytime to expand any section or exp
 ## A note on scope
 This system is for **research, education, and decision support** — not automated trading. No trades are ever executed on your behalf.
 
+## Imported reference (2026-07-18)
+- [[Investing/Education/2026-03-03-financial-literacy-platforms|Bite-sized financial-literacy platforms]] — a survey of apps/sites offering easy financial learning.
+
 Related: [[Investing/index]]

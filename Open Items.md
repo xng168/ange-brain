@@ -29,6 +29,15 @@ Active tasks, open questions, and decisions pending.
 - [ ] Landing page + waitlist on Vercel (separate tiny site, same pattern as Meridian/TCM App) for the TikTok-bio validation link — the funnel doesn't wait for the native app
 - [ ] Later gates to remember: Apple Developer $99/yr at TestFlight time; EAS free-tier limits (~US$19/mo beyond) once cloud builds start
 
+## claude.ai web export migration (2026-07-18)
+- [x] Exported the full claude.ai account history (29 conversations) → archived raw in `_sources/Export Data 18072026/` (gitignored).
+- [x] Reconstructed the Mandarin Kids App build kit from the export's tool-command history (the rendered files weren't in the export); verified + fixed a replay gap; kit now in `Ventures/Mandarin Kids App/build-kit/`. See [[Ventures/Mandarin Kids App/index|Mandarin Kids App]].
+- [x] Layered migration of the other conversations: **23 full-transcript notes** filed into pillars; 6 trivial ones (WinRAR, wifi troubleshooting, ollama, product-image gen, a WeChat-post read, an empty chat) left in the raw archive only.
+- [x] **Two significant undocumented things surfaced — need Angela's follow-up:**
+  - [ ] **Eyewear/sunglasses brand venture** now created at [[Ventures/Eyewear Brand/index|Eyewear Brand]] — confirm whether "NEU" / the Asian-inspired fashion naming is the *same* venture or a separate fashion brand, and capture the real current state (manufacturers contacted, samples, timing — only research convos are in the vault so far).
+  - [ ] **Potential move to Hong Kong** + active finance/audit job search — captured in [[Personal/index|Personal]]. If the HK move is live, promote the key tax/visa/residency decisions into this Open Items list (it affects [[Investing/index|investing]] and where ventures are based).
+- [ ] One conversation left unclassified in the raw archive: "Can you read this WeChat post?" (10 msgs) — topic unknown from the title; re-file if it matters.
+
 ## Content (Ange.beee)
 - [ ] Edit black sesame video for TikTok
 - [ ] Film/post the TCM food properties series (ginger hot/cold, flu-symptom foods) — cheap validation test for [[Ventures/TCM App/index|TCM App]] before building anything; see [[Content/Ideas/TCM food properties series]]

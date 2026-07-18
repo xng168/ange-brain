@@ -1,70 +1,74 @@
 # Mandarin Kids App
 
-*(working name — rename once the venture has a real name, same as [[Ventures/Meridian/index|Meridian]] did. Keep the brand string in one config file so a rename is a one-line change.)*
+*(folder is a working descriptor; the build kit's working title is **"Heritage Words"**. Rename once a real name is chosen — keep the brand string in one config file so a rename is a one-line change, same as [[Ventures/Meridian/index|Meridian]] did.)*
 
-An **offline-first bilingual (English ↔ Mandarin) learning app for young heritage-speaker children**, sold to parents on a **buy-once, no-subscription, no-data-collection** promise. The parent is the buyer and account-holder; there are no child accounts, no chat, no ads, and nothing leaves the device. First language pack is Mandarin; the content-pack architecture makes adding more languages later cheap.
+An **offline iOS app that teaches heritage-language children to *read* a language they already *speak*.** v1 ships one language pack: **Mandarin (simplified) + English**, for kids roughly **ages 5–10** who talk with their family in Mandarin but can't read a single character beyond 一二三. The app maps words the child already knows by ear onto their written form. The emotional promise to the parent: **"your kid will be able to read a message from grandma."** Sold on a **buy-once, no-subscription, no-ads, no-data-collection** pledge. The parent buys and configures; the child only sees the learning flow.
 
-- **Stage:** Spec'd 2026-07-18 — [[Ventures/Mandarin Kids App/Build Plan|Build Plan]] + [[Ventures/Mandarin Kids App/Super Prompt|Super Prompt]] ready, awaiting build kickoff. Not yet built.
-- **Origin:** Angela's market-research session on claude.ai web (Jul 2026), imported into the vault 2026-07-18. Research arc: mined complaint threads for solo-buildable gaps → narrowed to the intersection of two strong signals: (1) the **kids-learning** pain (parents want offline, no-subscription, privacy-safe apps and distrust billing-heavy incumbents) and (2) the **post-Duolingo language** gap (plateau/streak-anxiety backlash; heritage speakers and single language-pairs underserved).
-- **Model:** One-time purchase ("buy once, own forever") — deliberately **not** a subscription. This is a positioning pillar, not just a price. Free v1 to validate demand; paid unlock added only once there's traction.
-- **Platform decision (REVISED 2026-07-18, supersedes the PWA plan below):** **React Native + Expo (TypeScript), built entirely from Windows.** The fuller import of Angela's claude.ai web session revealed it had already moved past the SwiftUI recommendation to Expo — and Angela ratified that path there. Dev loop: code on Windows with Claude Code, test live on Angela's own iPhone via the free **Expo Go** app (scan a QR code, app live-updates on the phone — no simulator, no Mac). Shipping: **EAS cloud builds** compile the iOS binary on rented Macs and upload to Apple — no Mac ever needed. A Mac developer can join the project any time with zero conversion (standard React Native; git repo is fully portable).
-  - **Why native won over the PWA plan:** the app's three core promises — offline reliability, one-time purchase, parent trust — are all stronger native on iOS (installed-PWA storage on iPhones is evictable/murky vs. native storage; App Store one-time purchase is the payment pattern parents already trust for kids apps; the **App Store Kids Category is itself a discovery + trust channel** for this exact buyer). The deferred v1.5 features (stroke tracing, speech) are also much stronger native. Expo solves the same no-Mac problem the PWA was solving, without giving up the native end-state.
-  - **Costs specific to this path:** EAS free tier is limited (then ~US$19/mo or pay-per-build) — only bites when TestFlight shipping starts; Apple Developer **$99/yr becomes due at TestFlight time** (not launch). Expo Go testing is free.
-  - **Validation funnel unchanged:** a simple landing page + waitlist on Vercel (same pattern as Meridian/TCM App) remains the TikTok-bio link while the native app is built. The app itself doesn't need to be web for the funnel to work.
-- **Superseded (kept for reference):** the 2026-07-18 web-first PWA + Capacitor plan (see the superseded [[Ventures/Mandarin Kids App/Build Plan|Build Plan]] / [[Ventures/Mandarin Kids App/Super Prompt|Super Prompt]]). It was written before the web chat's Expo decision was known. Still a valid fallback if the Expo path ever proves unworkable.
+- **Stage:** Spec'd + full build kit in hand (2026-07-18). The complete kit was **reconstructed from Angela's claude.ai web session and imported** into `build-kit/` (see Documents). Not yet built — awaiting Phase 0 validation + M0 kickoff.
+- **Origin:** A claude.ai web market-research session (Jul 2026), reconstructed into the vault 2026-07-18 from the account data export. Research arc: mined complaint threads for solo-buildable gaps → narrowed to the intersection of two strong signals — (1) the **kids-learning** pain (parents want offline, no-subscription, privacy-safe apps) and (2) the **post-Duolingo language** gap (heritage speakers underserved). The session then converged on the sharpest wedge inside that: **heritage kids who speak but can't read**, which no incumbent serves well.
+- **Model:** One-time purchase (~USD $15–25), **never a subscription** — a positioning pillar, not just a price. Directly answers the #1 parent complaint about kids apps (billing/renewal traps).
+- **Platform:** **React Native + Expo (TypeScript), built entirely from Windows**, iOS-first (iPhone + iPad). Dev loop: code on Windows with Claude Code, test live on a real iPhone via the free **Expo Go** app (QR code, live reload — no simulator, no Mac). Shipping: **EAS cloud builds** compile the iOS binary on rented Macs and submit to Apple — no Mac ever needed. The codebase is deliberately kept **web-compatible** so the same code can also run as a **PWA beta channel** (a shareable URL for cheap, wide, pre-App-Store testing — see Roadmap Phase 6). A Mac developer can join the project any time with zero conversion.
+  - **Why not native SwiftUI (the research's first idea):** SwiftUI needs a Mac + Xcode, impossible on Angela's Windows machine. Expo removes the Mac dependency while still shipping a real native App Store app — the best of both.
+  - **Costs specific to this path:** Apple Developer **$99/yr** only from Phase 6 (TestFlight); EAS free tier works (~$19/mo optional to speed builds during the shipping month); **$0 servers forever** (no backend). Content is the real spend.
 
 ## The product
 
-A parent buys/installs the app for their pre-literate or early-reader child (roughly ages 3–7) to build and retain Mandarin. The child uses it **offline**, audio-first (so pre-readers can use it), through short, forgiving activities — no streaks, no timers, no punishment for missing a day. The parent controls what's active and sees light progress, behind a parent gate.
+A parent installs the app for a child (~5–10) who **speaks Mandarin at home but can't read it**. The child practises **offline**, audio-first, through short, gentle activities that map a spoken word they already know ("māma!") to its character. Anti-goal that shapes the whole tone: it must **never feel like the Saturday-school drilling these families resent** — no shame, no streaks, no timers, no punishment. The parent controls what's active and sees light progress behind a parental gate.
 
-**Audience:** parents of young **heritage-speaker** children (Chinese-diaspora families who want their kids to acquire or keep Mandarin), plus non-heritage parents who want a calm, private early-Mandarin tool. The parent is always the user who pays and configures; the child only ever sees the learning flow.
+**Audience:** heritage-language families (Chinese-diaspora households) whose kids can speak but not read/write. The parent is always the buyer/configurer; the child only ever sees the learning flow. Existing apps fail this audience by starting from zero ("this is how you say hello!"), which bores a fluent-speaking child, or by feeling like homework.
 
-**Positioning / the wedge (from the research):** deliberately narrow — **one language pair, one audience, one job done well.** Not "learn any language." The pitch is everything Duolingo-style apps are criticised for *not* being:
+**Positioning / the wedge:** deliberately narrow — **one language pair, one audience, one job done well.** The pitch is everything Duolingo-style apps are criticised for *not* being: **offline · no subscription · no data collection · no ads · no chat · native-quality audio · calm (no streak anxiety).** COPPA-safe *by construction* because there is no server and no personal data.
 
-- **Offline** — works on a plane, a subway, a road trip, with no signal. Table stakes the incumbents fumble.
-- **No subscription** — buy once, own forever. Directly answers the #1 parent complaint about kids apps (billing/renewal traps, "$13/mo for a 4-year-old's app").
-- **No data collection, no ads, no chat** — nothing phones home. COPPA-safe by construction because there's no server and no personal data. This is also the entire *marketing* pitch, not a footnote.
-- **No gamification-for-its-own-sake** — no streak anxiety, no energy/hearts system. Gentle, honest, calm.
-- **Native-quality audio** — every clip recorded/verified by a native speaker. One wrong tone teaches a mistake, so audio correctness is sacred.
+**Differentiator:** the specific audience (heritage kids who speak-but-can't-read) + the calm/private/offline/buy-once stance + a language-agnostic engine that makes future language packs pure content work. The activities themselves (flashcards, matching) are commodities; the moat is the curated bilingual content pack, the trust posture, and the narrow focus.
 
-**Differentiator vs. free content + vs. Duolingo:** curation + calm + privacy + offline for a *specific* audience (heritage kids), sold once. The activities themselves (flashcards, matching) are commodities; the moat is the curated bilingual content pack, the trust/privacy stance, and the heritage-speaker focus.
+## MVP scope (v1) — from the build kit's CLAUDE.md
 
-## MVP scope (v1)
+**In** (all fully offline, audio-first, no-shame):
 
-Deliberately small. Three activities, all fully offline, all audio-first:
+1. **Flashcard browser** — card shows character + pinyin + English with audio in *both* languages; flippable; filter by level/category; a learning-direction toggle (study either language from the other).
+2. **Recognition game** — hear a word → tap the right character from 3–4 options; gentle feedback; feeds progress.
+3. **Matching game** — memory-style pairing of cards (uses the per-card images where present).
+4. **Parent-child mode** — two-player co-op on one device (e.g. parent reads the English prompt aloud, child finds the character); designed for laps and couches, celebrates joint wins.
+5. **Parent area (behind a parental gate)** — per-character progress (solid / shaky / not seen), one weekly off-screen suggestion tied to a learned word, settings.
+6. **Spaced repetition under the hood** — invisible to the child; a missed word is quietly rescheduled, never punished.
 
-1. **Flashcards (recognition)** — a card shows an image + hanzi + pinyin; tap to hear native audio; flip for the English word. Browse a deck by category/level.
-2. **Audio–image matching game** — hear a word, tap the matching picture from 2–4 choices. Gentle "try again," never a punishing fail state. Difficulty scales by number of choices. No ML required.
-3. **Parent mode + parent gate** — a parent gate (hold-to-enter or simple math, per Kids-Category norms) guards a parent area where the parent picks active categories/levels and sees light progress (words seen/practiced). All on-device.
+**Out (v1.5+, do not build even if asked casually):** writing/tracing, speech recognition, traditional-character pack, additional languages, cloud sync, notifications. (Android is cheap later since the stack is cross-platform — but stay iOS-first for v1.)
 
-**Content:** ~150-word starter curriculum across a few concrete-noun categories (animals, food, family, colours, numbers…), each with native Mandarin audio (~150–170 clips) and a consistent image. Authored in a spreadsheet → exported to a bundled JSON content pack (same "content is the product, author in a sheet" pattern as [[Ventures/TCM App/index|TCM App]]).
+**Content:** a **292-word list** across **15 categories** and **4 levels** (First Words → Everyday Words → Around Me → Putting It Together / short phrases). **211 concrete words carry an image; 81 abstract words are correctly image-free.** Both languages are fully recorded (~**584 audio clips** total). Authored in `heritage-words-content-list.xlsx`; a **native-speaker proofread is a hard gate before any audio is recorded.**
 
-**Deliberately cut from v1 (see Backlog):** stroke-order tracing, speech/pronunciation practice, spaced-repetition scheduling, multiple child profiles, additional languages, the paid unlock. These are held back on purpose — tracing and speech are the two highest-risk features and were deferred in the research itself.
+**Hard architecture constraints (from CLAUDE.md — non-negotiable):** fully offline, no backend, no accounts · zero data collection (App Store label "Data Not Collected"), no third-party SDKs/analytics · Kids-Category compliant (parental gate on settings/links/purchase; no ads) · **language-agnostic engine** — zero hardcoded words/characters/levels/categories, everything read from the pack per the schema · never hardcode the number of levels or categories · **one-time purchase, no subscription code ever.**
 
 ## Why this scope fits a solo, nights/weekends, no-code founder
 
-- **No backend = no server bugs, no ongoing cost, no data-privacy surface.** The single biggest simplifier. Everything ships inside the app.
+- **No backend = no server bugs, no ongoing cost, no data-privacy surface.** Everything ships inside the app.
 - **No accounts = no auth to build or secure.**
-- **No runtime AI** — content is fixed and bundled, so unlike TCM App there isn't even a one-time AI generation step on the critical path. Running cost is ~$0 regardless of traffic.
-- **The hard part is content, not code** — same lesson as TCM App. The curriculum + native audio + consistent images are the real work; Claude Code writes all the code.
+- **No runtime AI** — content is fixed and bundled. Running cost ~$0 regardless of installs.
+- **The hard part is content, not code** — the 292-word curriculum, native audio (both languages), and consistent images are the real work; Claude Code writes all the code.
+
+## Decisions locked (from the schema's "Decisions locked" section)
+
+- **Simplified vs. Traditional → two separate packs**, not a `text_alt` toggle. A family picks at install: v1 ships `zh-hans-en` (simplified); a `zh-hant-en` traditional pack is future work. (This supersedes the earlier "hold both forms in one pack" idea.)
+- **Level-4 phrase audio → one file per whole phrase** (simpler to record; teaches natural phrase rhythm/tone flow).
+- **Images → a standard per-card field**: one image per concrete word, `null` for abstract words, one consistent commercially-licensed visual style, source/licence tracked per word in the spreadsheet.
+- **Symmetric two-language schema:** `language_1` and `language_2` carry identical fields (each with its own text, audio, script flags), so which language the child is learning is a runtime setting, and a future Spanish/English or Korean/Japanese pack drops in with no code change.
+- **Pinyin is the v1 romanisation** (zhuyin deferred with the traditional pack).
 
 ## Market signal (from the research, treat as directional)
 
-- **Kids-learning pain is billing/trust, not content quality.** 1-star reviews on top kids apps cluster on billing (trials charging early, annual renewals, cancellation friction) while the teaching is often fine. A child's interest fades in weeks but an annual sub runs a year — value-to-cost collapses before renewal. Parents explicitly ask for offline, no-subscription, no-data-collection apps. Trust gaps (COPPA gray areas, strangers messaging kids in some apps) deepen the demand for a visibly private, no-social product.
-- **Language-learning "post-Duolingo" gap is the loudest of the researched areas.** Top complaint in 2026: high engagement, low actual proficiency (the "plateau"); streak anxiety and backlash to the 2025 energy-system overhaul; unmet demand for honest speaking feedback, offline reliability, learning one language *from another* without routing through English, and one-time pricing. Less-common language pairs and heritage speakers are underserved.
-- **The category is crowded** — every individual gap has at least one startup attacking it (LingQ, Clozemaster, PolyChat, etc.). A solo builder wins **only by going narrow**: one language, one audience, one skill. This app's answer: Mandarin, heritage kids, recognition/listening — sold on offline + privacy + buy-once.
-- **Competition to respect:** Khan Academy Kids (free, excellent — so compete on a specific niche it doesn't serve, i.e. heritage Mandarin, not general early learning); big kids-app publishers on billing-heavy models; existing Mandarin-for-kids apps (many subscription-based, online-required).
+- **Kids-learning pain is billing/trust, not content quality.** 1-star reviews on top kids apps cluster on billing (trials charging early, annual renewals, cancellation friction) while the teaching is often fine. A child's interest fades in weeks but an annual sub runs a year — value-to-cost collapses before renewal. Parents explicitly ask for offline, no-subscription, no-data-collection apps.
+- **Language-learning "post-Duolingo" gap is the loudest of the researched areas:** high engagement but low real proficiency (the "plateau"); streak anxiety; unmet demand for offline reliability, honest feedback, learning one language *from another*, and one-time pricing. Less-common pairs and **heritage speakers are underserved.**
+- **The category is crowded** — a solo builder wins **only by going narrow**: one language, one audience, one job. This app's answer: Mandarin, heritage kids who speak-but-can't-read, recognition/reading — sold on offline + privacy + buy-once.
+- **Competition to respect:** Khan Academy Kids (free, excellent — so compete on the specific niche it doesn't serve); big kids-app publishers on billing-heavy models; existing Mandarin-for-kids apps (mostly subscription/online-required, and mostly start from zero rather than serving a fluent-speaking child).
 
-## Cost forecast (from the research, AUD/USD rough — get real quotes)
+## Cost forecast (rough — get real quotes)
 
-Infra is ~$0; **content is the cost driver.**
+Infra ~$0; **content is the cost driver.**
 
-- **Native Mandarin audio (~150–170 short clips):** ~USD $150–500 for a pro voice actor, or ~free if a native-speaker friend/community member records it (a few hours of work, one-time).
-- **Images (~100–150 concrete nouns):** the swing factor. Licensed consistent icon set ~$50–150; custom illustration $1,000–5,000+. AI-generated art is cheap but raises consistency + licensing concerns for a kids' product — tread carefully.
-- **Curriculum sanity-check by a Mandarin tutor:** optional ~$100–300; **native-speaker proofread of every entry is non-negotiable** ($50–150, or free if done by a trusted fluent person). One wrong tone teaches a mistake.
-- **Stroke-order data (only when tracing is built, v1.5):** ~$0 — open Chinese stroke datasets exist; check the licence.
-- **Fixed:** Vercel (free Hobby tier bars commercial use, so ~$20/mo Pro once monetising); no Apple/Google fees while web-first (Apple $99/yr + Google $25 one-time only if/when wrapped native). The AI-assisted build is covered by the existing Claude subscription.
-- **Realistic content spend:** ~$250 scrappy → ~$500–1,500 careful (most likely) → ~$6,000 if pro audio + custom illustration.
+- **Native audio (~584 clips: ~292 Mandarin + ~292 English):** near-free if a native-speaker friend records it (a few hours), or ~USD $150–500+ for a pro voice actor. A warm human voice matters most on the Mandarin side.
+- **Images (211 concrete words):** licensed consistent icon set ~$50–150; custom illustration far more. AI art is cheap but risks consistency/licensing issues for a kids' product — tread carefully. Log every image's source + licence (spreadsheet has a column).
+- **Native-speaker proofread of every character/pinyin/tone/meaning:** non-negotiable gate; ~$50–300 or free if done by a trusted fluent person. One wrong tone teaches a mistake.
+- **Fixed:** Apple Developer $99/yr (from Phase 6 only); EAS $0–19/mo (shipping month only); $0 servers. The AI-assisted build is covered by the existing Claude subscription.
+- **Total cash to v1:** roughly **USD $500–2,000** depending on content choices, plus your time (budget 3–5 months of nights/weekends).
 
 ## Competitors (research 2026-07-18)
 
@@ -72,64 +76,59 @@ Infra is ~$0; **content is the cost driver.**
 
 | App | Model | What it does well | Gap vs. this app |
 |---|---|---|---|
-| **Studycat (Learn Chinese)** | Subscription ("Fun Five" bundle); has offline mode | Kid-first design, ad-free, immersion-only audio (no English spoken), polished, ~400 characters taught | Subscription, not heritage-specific, general beginner content not tuned for heritage retention |
-| **iHuman Chinese** | **Lifetime one-time purchase** (~AUD $99.99 base, bundles ~AUD $125–157) | Deep content (1,300 characters), 130 leveled picture books, well-known in overseas-Chinese-parent circles | Not privacy/offline-first as a stated pitch; priced high for a single "unlock everything" purchase vs. this app's leaner scope; general learner not heritage-specific |
-| **Maomi Stars** | Subscription (typical) | Explicitly serves **heritage families**, supports both Mandarin + Cantonese, both Simplified + Traditional | Not positioned on offline/privacy/no-subscription; broader multi-language ambition than a focused wedge |
-| **Dot Languages** | Subscription (typical) | One of few apps offering Simplified/Traditional choice + **Zhuyin** for Taiwanese Mandarin learners, 14 interface languages | Same subscription-model complaint pattern as the rest; Mainland-Mandarin-centric despite the Zhuyin support |
-| **Gus on the Go** | One-time purchase (typical for this app) | Native-speaker audio, traditional characters + Hong Kong phrasing (Cantonese-focused sibling apps exist), ~90–1200 word vocab depending on version | Narrower scope (vocabulary-only, no personalization); not marketed on privacy/offline as the core pitch |
-| **DinoLingo** | Subscription | Ad-free, kid-safe, **no chat/pop-ups**, trusted by 100k+ families since 2010, broad language catalog including Cantonese | Not Mandarin-specialist (generalist across many languages so shallower per-language); still subscription-based |
-| **HelloChinese** | Freemium/subscription | Strong speech recognition, native-speaker video, good for casual practice | Not kid-focused, not offline-first, not heritage-specific |
+| **Studycat (Learn Chinese)** | Subscription ("Fun Five" bundle); has offline mode | Kid-first design, ad-free, immersion-only audio (no English spoken), polished, ~400 characters | Subscription; not heritage-specific; starts from beginner, not tuned for a fluent-speaking child |
+| **iHuman Chinese** | **Lifetime one-time purchase** (~AUD $99.99 base, bundles ~AUD $125–157) | Deep content (1,300 characters), 130 leveled picture books, known in overseas-Chinese-parent circles | Not privacy/offline-first as a pitch; priced high; general learner, not heritage-reading-specific |
+| **Maomi Stars** | Subscription (typical) | Explicitly serves **heritage families**, supports Mandarin + Cantonese, both Simplified + Traditional | Not positioned on offline/privacy/no-subscription; broader ambition than a focused wedge |
+| **Dot Languages** | Subscription (typical) | Simplified/Traditional choice + **Zhuyin** for Taiwanese learners, 14 interface languages | Same subscription pattern; Mainland-Mandarin-centric despite Zhuyin support |
+| **Gus on the Go** | One-time purchase | Native-speaker audio, traditional characters + Hong Kong phrasing | Narrower (vocabulary-only, no personalization); not privacy/offline-marketed |
+| **DinoLingo** | Subscription | Ad-free, kid-safe, no chat/pop-ups, trusted by 100k+ families since 2010, includes Cantonese | Generalist across many languages (shallower per-language); still subscription |
+| **HelloChinese** | Freemium/subscription | Strong speech recognition, native-speaker video | Not kid-focused, not offline-first, not heritage-specific |
 
-**The whitespace holds up:** iHuman proves parents will pay a one-time lifetime fee for Chinese-kids content (validates the pricing model), DinoLingo/Studycat prove "ad-free, no-chat, kid-safe" is a marketable pitch, and Maomi Stars/Dot Languages prove heritage-specific + Traditional/Zhuyin support is a real, served-but-not-dominated niche. **No competitor found combines all of: offline-first, one-time purchase, zero data collection stated as the core pitch, heritage-speaker focus, and deliberately anti-gamification design.** That combination is this app's actual differentiation — not any single feature alone.
+**The whitespace holds up:** iHuman proves parents will pay a one-time fee for Chinese-kids content (validates pricing); DinoLingo/Studycat prove "ad-free, no-chat, kid-safe" sells; Maomi Stars/Dot Languages prove heritage-specific + Traditional/Zhuyin is a real, served-but-not-dominated niche. **No competitor combines all of: offline-first, one-time purchase, zero data collection as the core pitch, the speak-but-can't-read heritage focus, and deliberately anti-gamification design.** That combination is the differentiation — not any single feature.
 
-### Broader — reputable general language-learning brands (the category this app is implicitly compared against)
+### Broader — reputable general language-learning brands (the implicit comparison set)
 
-| Brand | 2025-26 position | Model | Relevance |
+| Brand | 2025–26 position | Model | Relevance |
 |---|---|---|---|
-| **Duolingo** | Category leader, ~$1.03B revenue 2025, highest usage by far | Freemium + "Super Duolingo" subscription | The gamification/streak model this app is explicitly positioned against; also owns **Duolingo ABC**, a free kids' reading app (adjacent, not Mandarin-for-heritage-kids, but worth knowing it exists if Duolingo ever extends into this niche) |
-| **Babbel** | #2 by revenue | Subscription (~$9/mo+), structured/curriculum-based | Sets the "credible, structured" bar; not kids-focused |
-| **Rosetta Stone** | Legacy leader since the 1990s | Historically lifetime-purchase-friendly; "Dynamic Immersion" method | Proves immersion-style (image-to-word, no translation) methodology works at scale — same principle this app's flashcards use |
-| **Busuu** | Mid-tier, community-driven | Subscription | Native-speaker correction community model — not directly relevant to an offline kids app, but shows demand for native-speaker-verified content, which this app bakes in structurally instead |
+| **Duolingo** | Category leader, ~$1.03B revenue 2025, highest usage | Freemium + subscription, gamified | The streak/gamification model this app is explicitly positioned against; also owns **Duolingo ABC** (free kids' reading — adjacent, worth watching) |
+| **Babbel** | #2 by revenue | Subscription (~$9/mo+), structured | Sets the "credible, structured" bar; not kids-focused |
+| **Rosetta Stone** | Legacy leader since the 1990s | Historically lifetime-purchase-friendly; "Dynamic Immersion" | Proves image-to-word immersion works at scale — the same principle behind the flashcards/recognition game |
+| **Busuu** | Mid-tier, community-driven | Subscription | Shows demand for native-speaker-verified content, which this app bakes in structurally |
 
-**Read for positioning:** none of the reputable general-market leaders serve this niche (kids + heritage + offline + one-time-purchase) at all — they compete on adult-learner scale and engagement metrics, the opposite of this app's calm/offline/private stance. The real competitive set is the smaller Chinese-kids-app category above, not Duolingo-tier brands. Useful anyway as the credibility bar for production quality (audio, UX polish) and as "apps parents already trust the category of," which lowers the trust barrier for a new entrant.
+**Read for positioning:** none of the big brands serve this niche — they optimise for adult-learner scale and engagement metrics, the opposite of this app's calm/offline/private stance. They matter as the production-quality bar and as proof the category is trusted, which lowers the trust barrier for a new small entrant.
 
-## Open content decisions (settle during Phase 2, before recording audio)
+## Backlog / future features (from CLAUDE.md — do NOT build in v1; parked in `later.md` during the build)
 
-- **Simplified vs. Traditional characters.** Heritage audiences split (Mainland = simplified; Taiwan/HK/many Cantonese-heritage families = traditional). **Design the content schema to hold both hanzi forms per word from day one** — cheap now, expensive to retrofit. Ship simplified as the default, with traditional as a toggle if time allows.
-- **Pinyin vs. Zhuyin (bopomofo).** Taiwan uses zhuyin. Same principle: let the schema carry both romanisations; default to pinyin in v1.
-- **Curriculum list.** Which ~150 words, which categories, which order/levels. This is Angela's + a native-speaker's call, not a code decision.
-- **Voice.** One native voice actor for consistency; child-friendly, clear, standard tone. Decide accent/register (Mainland Putonghua default).
-
-## Backlog — do NOT build in v1 (keep a `BACKLOG.md`)
-
-Stroke-order tracing (v1.5, the fiddly touch-path feature) → speech/pronunciation practice with honest feedback (highest-risk, weak on web — a strong reason to consider native by then) → spaced-repetition review scheduling → traditional-character + zhuyin toggles (if not already shipped) → multiple child profiles → additional language packs (the architecture is built for this) → one-time paid unlock (Stripe on web, or App Store IAP if native) → **native app wrap via Capacitor for App Store/Play discovery + native billing** (no Mac needed — Capacitor + cloud build from Windows).
+Every future feature must still obey the v1 rules (reads from the pack, handles null-image cards, no streaks/no-shame, offline/no-data, Kids-Category compliant, works from pack data so it supports every language pack). Known items: **more games** (listening quizzes, category sorting, sentence-building — new screens on the shared card pool) → **writing/tracing** (v1.5; uses the pack's `stroke_data`; confirm stroke-data licence first) → **printable worksheets** (architecturally different — a *generated PDF*, its own sub-project; reuses stroke data) → **traditional-character pack (`zh-hant-en`) + additional language packs** (pure data, the payoff of the language-agnostic engine) → speech/pronunciation practice → cloud sync → notifications → Android build.
 
 ## Documents
 
-**Canonical build kit lives in the claude.ai web session and is NOT yet imported into this vault** — produced there 2026-07-18, pending download/copy-in (see Tasks):
+**Canonical build kit — reconstructed from the web session and imported to `Ventures/Mandarin Kids App/build-kit/` (2026-07-18):**
 
-- Project **CLAUDE.md super prompt** — includes a "Future features (post-v1)" section (printable worksheets + additional games recorded as planned-but-gated behind "ship v1 first", with rules: read from the pack, never hardcode words, handle null-image cards, no streaks/no-shame, offline/no-data) and a "stay Expo Go compatible, no exotic add-ons" portability rule
-- **No-Mac build guide** (Windows + Expo Go + EAS; uses a `later.md` file as the idea parking lot during the build)
-- **Symmetric two-language content schema** (both languages first-class, per-card images, phrase audio)
-- **292-word bilingual content list** with audio/image/license tracking — supersedes the ~150-word estimate below; awaiting native-speaker proofread before any audio is recorded
+- **`build-kit/CLAUDE.md`** — the super prompt / project brain; Claude Code auto-reads it each session. Hard constraints, tech stack, v1 scope, milestones M0–M8, "Future features (post-v1)" rules.
+- **`build-kit/language-pack-schema.md`** — the symmetric two-language data format all content follows; the second source-of-truth read alongside CLAUDE.md.
+- **`build-kit/build-guide.md`** — the no-Mac Windows/Expo day-to-day operating guide (install, Expo Go loop, EAS/TestFlight, working with outside developers).
+- **`build-kit/master-roadmap.md`** — the single ordered plan from today to launch (Phases 0–8), orchestrating the Build track and Content track in parallel.
+- **`build-kit/validation-kit.md`** — the Phase 0 validation sprint: where to post, a parent-interview script, the go/no-go scorecard. Companion to the landing page.
+- **`build-kit/landing-page.html`** — the Phase 0 validation landing page (replace `YOUR_FORM_ID` with a Formspree ID; also measures the simplified-vs-traditional split).
+- **`build-kit/heritage-words-content-list.xlsx`** — the 292-word content list + audio/image/licence tracker (Read Me + Word List sheets; yellow columns are the native-speaker reviewer's).
 
-Superseded vault docs (written before the web chat's Expo decision was known; kept as fallback reference): [[Ventures/Mandarin Kids App/Build Plan|Build Plan]] · [[Ventures/Mandarin Kids App/Super Prompt|Super Prompt]] (both PWA-path)
+Superseded vault docs (my earlier PWA-path speculation, written before the real kit was in hand; kept as fallback reference only): [[Ventures/Mandarin Kids App/Build Plan|Build Plan]] · [[Ventures/Mandarin Kids App/Super Prompt|Super Prompt]].
 
-**Key build decisions locked in:** **React Native + Expo (TypeScript)** built from Windows, tested on-phone via Expo Go, shipped via EAS cloud builds (see Platform decision above); **no backend, no accounts, no analytics** — content bundled in the app, progress in on-device storage, nothing leaves the device (this IS the privacy product); **language-agnostic engine reading from data packs** — activities read a shared card pool, so new languages are new content, not new code; **content authored in a spreadsheet** → validated content pack, same "content is the product" pattern as TCM App; **one-time-purchase model, never subscription** (a positioning pillar); **no runtime AI**; **new-feature discipline:** mid-build ideas go to `later.md`, and post-v1 features must obey the pack/no-shame/offline rules recorded in the project CLAUDE.md.
+**Reconstruction note:** the web session created these files inside its sandbox, and the export preserved the *commands* that built them (not the rendered files). They were rebuilt by replaying every `create_file`/`str_replace`/heredoc/inline-Python edit in order, then verified against the session's own end-of-run checks (no stale Xcode/SwiftUI refs; 292/211/81 word counts consistent; schema sections + locked decisions correct). The `.xlsx` was regenerated by re-running the (patched) build script: 292 words, IDs sequential, 0 duplicates.
 
 ## Tasks
 
-- [ ] **Pick the working scope name** (folder currently "Mandarin Kids App") and decide whether the eventual brand should stay Mandarin-specific or be language-neutral (the architecture supports more languages later)
-- [ ] **Settle the two content-schema decisions** before recording audio: simplified/traditional (hold both), pinyin/zhuyin (hold both) — see Open content decisions
-- [ ] Reuse existing accounts (GitHub, Vercel). **No Supabase/Anthropic key needed for the app itself** — the only optional backend use is a marketing-page email waitlist (can reuse the Supabase pattern, or skip and just link TikTok)
-- [ ] **Import the web-chat build kit into the vault/project** (the canonical version — see Documents): download or copy from the claude.ai session the CLAUDE.md super prompt, the no-Mac build guide, the two-language schema, and the 292-word content list
-- [ ] Create the project folder `C:\Users\Angela\Projects\mandarin-kids-app` (NOT inside the vault), install Node.js, open in VSCode, start Claude Code with the web kit's CLAUDE.md in place → run its Milestone 0 prompt (Expo scaffold, test on iPhone via Expo Go QR code)
-- [ ] Line up the content: get the **292-word list native-speaker proofread** (the web chat's stated gate before any audio is recorded), then record audio (word + phrase clips), choose a consistent image source — runs in parallel with early milestones and is the real bottleneck
-- [ ] Deploy Phase 1 to Vercel early for a TikTok-bio link (same funnel as Meridian/TCM App); validate parent demand before building all phases
+- [ ] **Phase 0 — validate demand first** (per `validation-kit.md`): host `landing-page.html` (Netlify Drop + a Formspree form), post the interview-style questions in heritage-parent communities, talk to ~10 parents, optional paper-card test. Go/no-go: ~100 genuine signups or 5/10 parents saying "I'd pay today."
+- [ ] **Native-speaker proofread of the 292-word list** (hard gate) — every character, pinyin, tone, English meaning; watch tone sandhi (不/一, 3rd-tone pairs) and neutral tones. **Nothing gets recorded until this is done.**
+- [ ] Install toolchain: paid Claude plan, Node.js (LTS), Claude Code, Expo Go on the iPhone. Put `CLAUDE.md` + `language-pack-schema.md` in the project folder.
+- [ ] Create the project `C:\Users\Angela\Projects\mandarin-kids-app` (or `heritage-words`; NOT inside the vault), start Claude Code, run the M0 prompt from `build-guide.md` (Expo scaffold, ~20 placeholder cards, app on the iPhone via Expo Go).
+- [ ] Content track (parallel, the real bottleneck): line up the native recorder for ~584 clips, choose a licensed image set for the 211 concrete words, log each image's licence.
+- [ ] Decide the real name (kit uses working title "Heritage Words"); consider a language-neutral name since more packs can follow. Keep the brand string in one config file.
 
 ## Notes / progress
 
-- 2026-07-18: Venture created from the claude.ai web market-research session (previously undocumented — flagged by an exhaustive vault search that found no prior record). Research synthesised into this note; Build Plan + Super Prompt written (PWA path). **Corrected the research's platform recommendation** from native SwiftUI (impossible on Angela's Windows machine) to a web-first offline PWA, with native wrap deferred.
-- 2026-07-18 (later): Fuller transcript of the web session imported — it had **already evolved past SwiftUI to React Native + Expo** (Angela ratified that path there: Expo Go on-phone testing, EAS cloud builds, no Mac) and produced a complete v1 kit (CLAUDE.md super prompt with future-features section, no-Mac build guide, symmetric two-language schema, 292-word content list). **Platform decision revised to Expo/React Native**; the vault's PWA-path Build Plan + Super Prompt marked superseded (kept as fallback). Claude Code review endorsed the switch on the merits: offline reliability, one-time purchase, and Kids-Category trust/discovery are all stronger native, and v1.5 tracing/speech need native anyway. Web kit artifacts still pending import into the vault.
+- 2026-07-18: Venture created from a claude.ai web market-research session (previously undocumented). Initial spec written from the *pasted* chat; platform corrected SwiftUI → (PWA →) **Expo/React Native**.
+- 2026-07-18 (later): Full account data export imported. The web session's actual build kit — **CLAUDE.md, language-pack-schema.md, build-guide.md, master-roadmap.md, validation-kit.md, landing-page.html, and the 292-word .xlsx** — was **reconstructed from the export's tool-command history** (the rendered files weren't in the export) and placed in `build-kit/`. A verification pass caught and fixed a gap where an inline-Python cleanup step (message 58) hadn't been replayed, which had left CLAUDE.md/schema/build-guide with stale "Xcode"/"~150-word" content; after re-applying it, the kit matches the session's own final state. This note (`index.md`) was then rewritten to match the authoritative kit — correcting earlier speculation (the real product is **292 words, ages ~5–10, "speaks but can't read", 5 activities + spaced repetition**, not ~150 words / ages 3–7 / 3 activities). The PWA path is retained not as the primary plan but as a **beta channel** (Roadmap Phase 6, Route A). Raw export archived (gitignored) in `_sources/Export Data 18072026/`.
 
 Related: [[Ventures/index|Ventures]], [[Ventures/Meridian/index|Meridian]], [[Ventures/TCM App/index|TCM App]]

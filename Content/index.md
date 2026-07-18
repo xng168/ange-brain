@@ -27,6 +27,10 @@ Occasional brand deals — see [[Content/Brand Deals]] for details as they come 
 4. Edit (CapCut)
 5. Post
 
+## Growth strategy (imported 2026-07-18)
+- [[Content/Analytics/2026-07-11-tiktok-growth-strategy-ange-beee|TikTok growth strategy & action plan]] — data-grounded plan (account at 7,009 followers, goal 15k)
+- [[Content/Analytics/2026-07-11-tiktok-growth-prompt-optimization|TikTok growth prompt optimization]] — the reusable analysis prompt companion
+
 ## Subfolders
 - [[Content/Ideas]] — content ideas as they come
 - [[Content/Posts]] — published post notes/performance
