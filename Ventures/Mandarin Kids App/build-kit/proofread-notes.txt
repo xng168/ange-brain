@@ -1,0 +1,35 @@
+=== MECHANICAL QA: heritage-words-content-list.xlsx ===
+rows: 292 | id sequence intact: True | empty cells: 0
+level split: {1: 59, 2: 89, 3: 90, 4: 54}
+categories: 15 | with image: 211 | abstract: 81
+duplicate hanzi: none
+
+HARD ISSUES (0):
+  none — clean
+
+REVIEWER ATTENTION LIST — tone sandhi / neutral tone (27 rows):
+  * 0059 不 (bù) — 不/一 tone sandhi check
+  * 0239 我爱你 (wǒ ài nǐ) — possible 3rd-3rd sandhi
+  * 0244 我要喝水 (wǒ yào hē shuǐ) — possible 3rd-3rd sandhi
+  * 0246 我渴了 (wǒ kě le) — possible 3rd-3rd sandhi
+  * 0248 你好吗 (nǐ hǎo ma) — possible 3rd-3rd sandhi
+  * 0249 我很好 (wǒ hěn hǎo) — possible 3rd-3rd sandhi
+  * 0250 早上好 (zǎoshang hǎo) — possible 3rd-3rd sandhi
+  * 0252 我想睡觉 (wǒ xiǎng shuìjiào) — possible 3rd-3rd sandhi
+  * 0254 我喜欢你 (wǒ xǐhuan nǐ) — possible 3rd-3rd sandhi
+  * 0255 一起玩 (yìqǐ wán) — 不/一 tone sandhi check
+  * 0257 我不要 (wǒ bú yào) — 不/一 tone sandhi check
+  * 0260 请给我 (qǐng gěi wǒ) — possible 3rd-3rd sandhi
+  * 0261 我们走吧 (wǒmen zǒu ba) — possible 3rd-3rd sandhi
+  * 0262 对不起 (duìbuqǐ) — 不/一 tone sandhi check
+  * 0265 我不会 (wǒ bú huì) — 不/一 tone sandhi check
+  * 0272 我不知道 (wǒ bù zhīdào) — 不/一 tone sandhi check
+  * 0273 请帮我 (qǐng bāng wǒ) — possible 3rd-3rd sandhi
+  * 0274 我们一起 (wǒmen yìqǐ) — possible 3rd-3rd sandhi
+  * 0275 我可以吗 (wǒ kěyǐ ma) — possible 3rd-3rd sandhi
+  * 0276 我喜欢吃 (wǒ xǐhuan chī) — possible 3rd-3rd sandhi
+  * 0277 天气很好 (tiānqì hěn hǎo) — possible 3rd-3rd sandhi
+  * 0278 我爱我的家 (wǒ ài wǒ de jiā) — possible 3rd-3rd sandhi
+  * 0280 你几岁 (nǐ jǐ suì) — possible 3rd-3rd sandhi
+  * 0281 我要上厕所 (wǒ yào shàng cèsuǒ) — possible 3rd-3rd sandhi
+  * 0288 我想妈妈 (wǒ xiǎng māma) — possible 3rd-3rd sandhi
