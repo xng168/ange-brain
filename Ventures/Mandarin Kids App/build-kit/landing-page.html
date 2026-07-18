@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heritage Words — Your child speaks Mandarin. Can they read it?</title>
+<meta name="description" content="An app for kids who speak Mandarin at home but can't read it yet. Offline, no subscription, no data collection. Join the waitlist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF8F4;
+    --ink:#211E1A;
+    --ink-soft:#5C564D;
+    --seal:#B3382C;      /* cinnabar seal red — used like a name chop, sparingly */
+    --seal-deep:#8E2A20;
+    --jade:#6E9E86;
+    --line:#E4DFD6;
+    --card:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--paper); color:var(--ink);
+    line-height:1.6; font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .hanzi{font-family:'Noto Serif SC',serif}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* ---------- header ---------- */
+  header{padding:28px 0}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.01em}
+  .brand .chop{
+    width:34px;height:34px;background:var(--seal);color:#fff;border-radius:7px;
+    display:flex;align-items:center;justify-content:center;font-size:19px;
+    font-family:'Noto Serif SC',serif;font-weight:700;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{padding:44px 0 72px}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  @media(max-width:820px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+  .eyebrow{color:var(--seal);font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+  h1{
+    font-family:'Instrument Serif',serif;font-weight:400;
+    font-size:clamp(38px,5.4vw,58px);line-height:1.08;letter-spacing:-.01em;
+    margin-bottom:22px;
+  }
+  h1 em{font-style:italic;color:var(--seal)}
+  .lede{font-size:19px;color:var(--ink-soft);max-width:34em;margin-bottom:30px}
+  .cta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .btn{
+    display:inline-block;background:var(--seal);color:#fff;text-decoration:none;
+    padding:14px 26px;border-radius:9px;font-weight:600;font-size:16px;
+    border:none;cursor:pointer;box-shadow:0 1px 0 var(--seal-deep), 0 6px 18px rgba(179,56,44,.18);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 2px 0 var(--seal-deep), 0 10px 22px rgba(179,56,44,.22)}
+  .btn:focus-visible{outline:3px solid var(--jade);outline-offset:2px}
+  .cta-note{font-size:14px;color:var(--ink-soft)}
+
+  /* the signature: a message from 奶奶 */
+  .phone{
+    background:var(--card);border:1px solid var(--line);border-radius:22px;
+    padding:26px 22px 22px;box-shadow:0 14px 40px rgba(33,30,26,.09);
+    max-width:360px;margin:0 auto;
+  }
+  .phone .from{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .phone .avatar{width:38px;height:38px;border-radius:50%;background:var(--jade);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-family:'Noto Serif SC',serif;font-size:17px}
+  .phone .who{font-weight:600;font-size:15px}
+  .phone .who small{display:block;font-weight:400;color:var(--ink-soft);font-size:12.5px}
+  .bubble{
+    background:#F1EEE7;border-radius:16px 16px 16px 5px;padding:14px 16px;
+    font-size:22px;line-height:1.55;margin-bottom:14px;
+  }
+  .phone .q{font-size:14.5px;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:13px}
+  .phone .q strong{color:var(--seal)}
+
+  /* ---------- sections ---------- */
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(28px,3.6vw,38px);
+     line-height:1.15;margin-bottom:14px;max-width:22em}
+  .sub{color:var(--ink-soft);max-width:38em;margin-bottom:34px}
+
+  .gap-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:760px){.gap-cards{grid-template-columns:1fr}}
+  .gap-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 22px}
+  .gap-card .big{font-family:'Noto Serif SC',serif;font-size:34px;margin-bottom:10px;color:var(--ink)}
+  .gap-card h3{font-size:16.5px;margin-bottom:6px}
+  .gap-card p{font-size:15px;color:var(--ink-soft)}
+
+  .how{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:760px){.how{grid-template-columns:1fr}}
+  .how-step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 22px}
+  .how-step .tag{display:inline-block;background:#F1EEE7;border-radius:99px;padding:3px 12px;
+    font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:12px}
+  .how-step h3{font-size:16.5px;margin-bottom:6px}
+  .how-step p{font-size:15px;color:var(--ink-soft)}
+
+  .pledge{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 30px}
+  .pledge ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:14px 28px;margin-top:8px}
+  @media(max-width:640px){.pledge ul{grid-template-columns:1fr}}
+  .pledge li{display:flex;gap:11px;align-items:flex-start;font-size:15.5px}
+  .pledge li .dot{color:var(--jade);font-weight:700;line-height:1.5}
+  .pledge li b{font-weight:600}
+
+  /* ---------- form ---------- */
+  .signup{background:var(--ink);color:#F5F2EC;border-radius:20px;padding:44px 36px;margin:20px 0 8px}
+  @media(max-width:640px){.signup{padding:34px 22px}}
+  .signup h2{color:#fff;margin-bottom:8px}
+  .signup .sub{color:#C9C2B6}
+  form{display:grid;gap:16px;max-width:520px}
+  label{font-size:14px;font-weight:600;letter-spacing:.02em}
+  input[type=email]{
+    width:100%;padding:14px 16px;border-radius:9px;border:1px solid #4A453D;
+    background:#2C2822;color:#fff;font-size:16px;font-family:inherit;
+  }
+  input[type=email]:focus-visible{outline:3px solid var(--jade);outline-offset:1px;border-color:var(--jade)}
+  .radio-row{display:flex;gap:10px;flex-wrap:wrap}
+  .radio-row label{
+    display:flex;gap:8px;align-items:center;background:#2C2822;border:1px solid #4A453D;
+    border-radius:9px;padding:11px 16px;font-weight:500;cursor:pointer;font-size:15px;
+  }
+  .radio-row input{accent-color:var(--seal)}
+  .radio-row label:has(input:checked){border-color:var(--seal);background:#332A26}
+  .signup .btn{width:fit-content}
+  .privacy-note{font-size:13px;color:#A29A8C;max-width:36em}
+
+  footer{padding:36px 0 48px;color:var(--ink-soft);font-size:14px}
+  footer .honest{max-width:40em}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="brand"><span class="chop hanzi">词</span> Heritage Words</div>
+</header>
+
+<main>
+  <div class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">For families raising bilingual kids</p>
+        <h1>Your child speaks Mandarin.<br><em>Can they read it?</em></h1>
+        <p class="lede">An app for kids (5–10) who grew up hearing and speaking Chinese at home — but can't yet read the characters. It starts from the words they already know by ear, and teaches them to read what they can already say.</p>
+        <div class="cta-row">
+          <a class="btn" href="#signup">Join the waitlist</a>
+          <span class="cta-note">Free to join · we'll email once, at launch</span>
+        </div>
+      </div>
+      <div class="phone" aria-label="Example text message from grandma">
+        <div class="from">
+          <div class="avatar">奶</div>
+          <div class="who">奶奶 <small>Grandma · 8:02 PM</small></div>
+        </div>
+        <div class="bubble hanzi">宝宝，我想你。<br>我爱你 ❤️</div>
+        <p class="q">One day soon: <strong>your child reads this themselves.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2>The gap every heritage family knows</h2>
+      <p class="sub">Kids who speak Mandarin at home don't automatically learn to read it — characters aren't picked up by ear. Existing apps don't fit: they either start from zero like your child knows nothing, or drill like the Saturday school they already dread.</p>
+      <div class="gap-cards">
+        <div class="gap-card">
+          <div class="big">妈妈</div>
+          <h3>They can say it</h3>
+          <p>Hundreds of words, perfect tones, learned on your lap. The listening and speaking are already there.</p>
+        </div>
+        <div class="gap-card">
+          <div class="big" style="color:var(--seal)">？？</div>
+          <h3>They can't read it</h3>
+          <p>Show them the same word written down and it's a stranger. Characters need to be learned by eye — and no one built that bridge.</p>
+        </div>
+        <div class="gap-card">
+          <div class="big">词</div>
+          <h3>So we start from sound</h3>
+          <p>Every lesson begins with a word your child already knows by ear — then connects it to the character. Instant wins, from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Five gentle minutes a day</h2>
+      <p class="sub">Flashcards with real native-speaker audio in both languages, a hear-it-tap-it reading game, a matching game — and a two-player mode you play together, because keeping the language alive is a family thing.</p>
+      <div class="how">
+        <div class="how-step">
+          <span class="tag">Hear</span>
+          <h3>A word they know</h3>
+          <p>“māma!” — real recorded voices, not a computer. Your child starts from what's already theirs.</p>
+        </div>
+        <div class="how-step">
+          <span class="tag">See</span>
+          <h3>Find the character</h3>
+          <p>Tap the right character from a few choices. Wrong guesses are never punished — the app just gently shows the answer and moves on.</p>
+        </div>
+        <div class="how-step">
+          <span class="tag">Together</span>
+          <h3>Play it as a pair</h3>
+          <p>A parent-and-child mode built for couches and laps. You read, they find. Joint wins, celebrated together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Our pledge to parents</h2>
+      <p class="sub">We're parents too, and we've read the same one-star reviews you have. So these aren't features — they're promises.</p>
+      <div class="pledge">
+        <ul>
+          <li><span class="dot">✓</span><span><b>One price, once.</b> No subscription, no renewal surprise, no paywall mid-story.</span></li>
+          <li><span class="dot">✓</span><span><b>Zero data collection.</b> No accounts, no ads, no tracking. Progress lives on your device.</span></li>
+          <li><span class="dot">✓</span><span><b>Fully offline.</b> Works on the plane to see 奶奶. No wifi, no problem.</span></li>
+          <li><span class="dot">✓</span><span><b>No streaks, no shame.</b> No guilt mechanics, no anxiety. Missing a day costs nothing.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="signup" style="border-top:none;padding-top:24px">
+    <div class="wrap">
+      <div class="signup">
+        <h2>Be first when it launches</h2>
+        <p class="sub">Join the waitlist and help shape it — we're building this with heritage families, not just for them.</p>
+        <!-- ⚠️ SETUP REQUIRED: replace YOUR_FORM_ID below with your free Formspree endpoint
+             (formspree.io → new form → copy the URL). Until then the form won't submit. -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div>
+            <label for="email">Your email</label>
+            <input id="email" type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+          </div>
+          <div>
+            <label>Which characters does your family use?</label>
+            <div class="radio-row" role="radiogroup">
+              <label><input type="radio" name="script" value="simplified" required> 简体 Simplified</label>
+              <label><input type="radio" name="script" value="traditional"> 繁體 Traditional</label>
+              <label><input type="radio" name="script" value="both"> Both / not sure</label>
+            </div>
+          </div>
+          <button class="btn" type="submit">Join the waitlist</button>
+          <p class="privacy-note">One email at launch, maybe one beta invite before it. Nothing else, ever — that's rather the point of us.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap honest">
+    <p><strong>Honest note:</strong> Heritage Words is in development by a small independent team. Joining the waitlist helps us prove families want this — and your script choice above directly decides what we build first. 谢谢你。</p>
+  </div>
+</footer>
+
+</body>
+</html>
