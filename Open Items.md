@@ -33,7 +33,10 @@ Active tasks, open questions, and decisions pending.
 - [ ] **Angela (Phase 0, in progress):** print `paper-test-cards.pdf`, run the paper test + landing page + parent interviews per `validation-kit.md`.
 - [ ] **Angela: test M0+M1 on your iPhone** — install Expo Go, run `npm start` in the project folder, scan the QR (same Wi-Fi). Success = "Heritage Words" home screen with "✓ pack loaded — 20 cards", and the Debug screen lists levels/categories/cards.
 - [ ] **Angela: give the native speaker** the spreadsheet + `proofread-notes.txt` (the sandhi attention list). Audio recording stays blocked until sign-off.
-- [ ] **M2 — flashcards:** next build milestone (deck browser, flip, both audios via dev-placeholder TTS, direction toggle).
+- [x] **M2–M4 built (2026-07-19):** flashcards (flip, filters, direction toggle, TTS-placeholder audio via the M7 swap-point wrapper) → `88adb0e`; Listen & Tap recognition game + on-device progress store with invisible spaced-repetition bias → `310d7ab`; memory-style matching game → `c2eecf4`. All typecheck + iOS-bundle verified. Home screen now has the three activities.
+- [x] **M5 built (2026-07-19, `e588c80`):** Angela picked a **turn-based two-player challenge, first to 10** (her own design, over the proposed co-op options). Implemented no-shame per the app's CLAUDE.md: flowers only earned never lost, miss = soft reveal + turn passes, ending celebrates both players + rematch. Child rounds hear→tap-character; grown-up rounds see-character→pick-meaning.
+- [ ] **M6 — parent area + parental gate + progress view + settings** (debug entry moves behind the gate; also consolidate UI strings into one localizable file — known debt). Next build session.
+- [ ] After M6: **M7 real content** (blocked on proofread + audio + images) and **M8 ship polish** (blocked on device testing).
 - [ ] Landing page + waitlist on Vercel (separate tiny site, same pattern as Meridian/TCM App) for the TikTok-bio validation link — the funnel doesn't wait for the native app
 - [ ] Later gates to remember: Apple Developer $99/yr at TestFlight time; EAS free-tier limits (~US$19/mo beyond) once cloud builds start
 
