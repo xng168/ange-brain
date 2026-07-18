@@ -1,5 +1,7 @@
 # Mandarin Kids App — Build Plan
 
+> ⚠️ **SUPERSEDED (2026-07-18).** This is the web-first **PWA** build plan, written before the claude.ai web session's Expo decision was known. The canonical path is **React Native + Expo** (Windows + Expo Go + EAS cloud builds) per that session's no-Mac build guide (pending import — see [[Ventures/Mandarin Kids App/index|the venture note]]). Kept as a fallback reference only.
+
 Step-by-step plan for building the app with zero coding experience, using Claude Code as the builder. Read this first; the actual build instructions Claude follows are in [[Ventures/Mandarin Kids App/Super Prompt|Super Prompt]].
 
 ## The approach in one paragraph

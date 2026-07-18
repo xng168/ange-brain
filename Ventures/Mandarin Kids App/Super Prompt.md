@@ -1,5 +1,7 @@
 # Mandarin Kids App — Super Prompt
 
+> ⚠️ **SUPERSEDED (2026-07-18).** This is the web-first **PWA** super prompt, written before the claude.ai web session's Expo decision was known. The canonical build kit is the **React Native + Expo** CLAUDE.md produced in that session (pending import — see [[Ventures/Mandarin Kids App/index|the venture note]], Documents). **Do not paste this into a build session** unless deliberately falling back to the PWA path.
+
 How to use: create the folder `C:\Users\Angela\Projects\mandarin-kids-app` (NOT inside the Brain vault), open it in VSCode (File → Open Folder), start Claude Code there, and paste **everything below the line** as your first message. See [[Ventures/Mandarin Kids App/Build Plan|Build Plan]] for the surrounding steps.
 
 ---
