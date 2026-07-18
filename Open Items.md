@@ -26,8 +26,14 @@ Active tasks, open questions, and decisions pending.
 - [ ] **Decide two content-schema questions** before recording audio: simplified vs. traditional characters, pinyin vs. zhuyin (schema holds both; just pick the v1 default — recommend simplified + pinyin)
 - [ ] Get the 292-word list **native-speaker proofread** (the stated gate before any audio recording), then line up recording (word + phrase clips) + a consistent image source — the real bottleneck
 - [x] **M0 built (2026-07-18):** Expo project scaffolded at `C:\Users\Angela\Projects\mandarin-kids-app`, build kit installed, 20-card placeholder pack, "Heritage Words" home screen; iOS bundle + typecheck verified; committed (`main`, `3f05df5`). Uses the verified reconstruction (browser's literal outputs weren't in the export).
-- [ ] **Angela: test M0 on your iPhone** — install Expo Go, run `npm start` in the project folder, scan the QR (same Wi-Fi). Success = "Heritage Words" home screen shows.
-- [ ] **M1 — pack engine:** continue in a *fresh* Claude Code session opened in the project folder (so its CLAUDE.md governs) — build the pack loader/validator + debug screen.
+- [x] **M1 — pack engine built (2026-07-19):** loader + plain-English validation + debug screen; typecheck/bundle clean; validator proven against a deliberately broken pack (commit `e2403b6`).
+- [x] **Phase 0 unblocked (2026-07-19):** the paper-test PDF didn't actually exist anywhere (only its build script survived the export) — regenerated with Windows fonts, verified (5 pages, 20 cards, hanzi + tone marks render): `build-kit/paper-test-cards.pdf`. **Print this one.**
+- [x] **Phase 1 content QA done (2026-07-19):** 292-word list mechanically clean (IDs sequential, 0 empties, 0 pinyin issues, no duplicate hanzi); 27-row tone-sandhi/neutral-tone attention list for the native-speaker reviewer → `build-kit/proofread-notes.txt`.
+- [x] **Originals verified (2026-07-19):** Angela downloaded the browser session's five output files into `_sources/App files/`; full diff vs the reconstruction = byte-identical (incl. all 293×12 spreadsheet cells). Originals now canonical in `build-kit/` + the project (commit `a311ae4`). Direction confirmed: implementation (M0+M1) matches the outputs exactly.
+- [ ] **Angela (Phase 0, in progress):** print `paper-test-cards.pdf`, run the paper test + landing page + parent interviews per `validation-kit.md`.
+- [ ] **Angela: test M0+M1 on your iPhone** — install Expo Go, run `npm start` in the project folder, scan the QR (same Wi-Fi). Success = "Heritage Words" home screen with "✓ pack loaded — 20 cards", and the Debug screen lists levels/categories/cards.
+- [ ] **Angela: give the native speaker** the spreadsheet + `proofread-notes.txt` (the sandhi attention list). Audio recording stays blocked until sign-off.
+- [ ] **M2 — flashcards:** next build milestone (deck browser, flip, both audios via dev-placeholder TTS, direction toggle).
 - [ ] Landing page + waitlist on Vercel (separate tiny site, same pattern as Meridian/TCM App) for the TikTok-bio validation link — the funnel doesn't wait for the native app
 - [ ] Later gates to remember: Apple Developer $99/yr at TestFlight time; EAS free-tier limits (~US$19/mo beyond) once cloud builds start
 
