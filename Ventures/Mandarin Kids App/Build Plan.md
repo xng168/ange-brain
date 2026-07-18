@@ -86,7 +86,7 @@ Give the link to 5–10 heritage-speaker parents with young kids. Watch: does th
 - One-time paid unlock (Stripe on web) — deliberately not in MVP.
 - Custom domain (~USD $15/yr) once a real name is chosen.
 - v1.5: stroke-order tracing; then speech/pronunciation practice (the point where a native app may finally be worth it).
-- **Native App Store / Google Play wrap via Capacitor** — turns this web app into a store-listed app with native one-time billing. Buildable from Windows via cloud build (no Mac needed). Do this only once web validation proves parents want it.
+- **Native App Store / Google Play wrap via Capacitor** — turns this web app into a store-listed app with native one-time billing, WITHOUT buying a Mac. You wrap the same code with Capacitor, and the iOS build runs on a cloud Mac: **Codemagic** or **Ionic Appflow** (both built for Capacitor) or **GitHub Actions macOS runners** compile and submit for you from your Windows machine. You'll need an **Apple Developer account ($99/yr)** and (for Android) a one-time **Google Play fee ($25)**; check current cloud-build free tiers when you get there. Note: Apple won't accept a bare website, but the Capacitor wrap is a real native app, which is accepted — this is a standard path. The build is kept Capacitor-compatible from day one (see architecture rule 2b in the Super Prompt) so this wrap stays a small, late step rather than a rewrite. Do it only once web validation proves parents want it.
 - Additional language packs — the architecture is built so a second language is mostly new content, not new code.
 
 ## Things to keep in mind
