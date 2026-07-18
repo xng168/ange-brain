@@ -21,19 +21,20 @@ Active tasks, open questions, and decisions pending.
 
 ## Mandarin Kids App (pre-build)
 - [x] Imported the claude.ai web market-research session into the vault and spec'd the venture (2026-07-18) — see [[Ventures/Mandarin Kids App/index|Mandarin Kids App]]
-- [x] Build Plan + Super Prompt written (2026-07-18)
-- [x] **Corrected the platform:** research said native SwiftUI (impossible on Windows) → decided web-first offline PWA on the existing Next.js/Vercel stack, native wrap deferred
+- [x] **Platform decision revised (2026-07-18):** fuller web-chat transcript showed it had already moved SwiftUI → **React Native + Expo** (Windows dev, Expo Go on-phone testing, EAS cloud iOS builds — no Mac) and Angela ratified it there. Vault's PWA-path Build Plan + Super Prompt marked superseded (kept as fallback). Claude Code endorsed the switch: offline reliability, one-time purchase, Kids-Category trust are all stronger native.
+- [ ] **Import the web-chat build kit** (the canonical version) into the vault/project: CLAUDE.md super prompt, no-Mac build guide, symmetric two-language schema, **292-word bilingual content list** — download/copy from the claude.ai session before starting the build
 - [ ] **Decide two content-schema questions** before recording audio: simplified vs. traditional characters, pinyin vs. zhuyin (schema holds both; just pick the v1 default — recommend simplified + pinyin)
-- [ ] Draft the ~150-word curriculum and get a native speaker to sanity-check the list + ordering
-- [ ] Line up a native Mandarin speaker to record ~150–170 audio clips (the real bottleneck) + choose a consistent image source
-- [ ] Create `C:\Users\Angela\Projects\mandarin-kids-app`, open in VSCode, start Claude Code, paste the Super Prompt → Phase 1 (skeleton + installable offline PWA shell + landing page)
-- [ ] Deploy Phase 1 to Vercel early for a TikTok-bio link; validate heritage-parent demand before building all phases
+- [ ] Get the 292-word list **native-speaker proofread** (the stated gate before any audio recording), then line up recording (word + phrase clips) + a consistent image source — the real bottleneck
+- [ ] Create `C:\Users\Angela\Projects\mandarin-kids-app`, install Node.js, place the web kit's CLAUDE.md, start Claude Code → Milestone 0 (Expo scaffold, test on iPhone via Expo Go)
+- [ ] Landing page + waitlist on Vercel (separate tiny site, same pattern as Meridian/TCM App) for the TikTok-bio validation link — the funnel doesn't wait for the native app
+- [ ] Later gates to remember: Apple Developer $99/yr at TestFlight time; EAS free-tier limits (~US$19/mo beyond) once cloud builds start
 
 ## Content (Ange.beee)
 - [ ] Edit black sesame video for TikTok
 - [ ] Film/post the TCM food properties series (ginger hot/cold, flu-symptom foods) — cheap validation test for [[Ventures/TCM App/index|TCM App]] before building anything; see [[Content/Ideas/TCM food properties series]]
 
 ## Sync
+- [x] 2026-07-18: gbrain checkpoint-wedge recurred with a **second trigger**: a sync that fails mid-embed (`blocked_by_failures`, files "banked", embedded 0) still advances the git checkpoint, so later incremental syncs report "synced" while search keeps serving stale chunks. Same fix as 2026-07-13: `mcp__gbrain__sync_brain(full=true)` (reads the directory directly, also catches uncommitted edits). Rule of thumb now confirmed twice: **after any gbrain sync error — lock timeout or embed failure — run a full sync and spot-check with a query.** Also: the CLI `gbrain import` always hits "Timed out waiting for PGLite lock" while the MCP `gbrain serve` process is running (single-writer DB) — use the MCP `sync_brain` tool from inside a session instead.
 - [x] 2026-07-13 00:57: one `git pull --rebase` sync attempt failed (likely a timing collision between Obsidian Git's 10-min auto-commit and the 20-min sync.ps1 task during a heavy editing session). Self-healed on the next scheduled run 5 min later — confirmed no data loss, vault fully matches GitHub. Not fixed proactively since it's a rare, self-recovering race; revisit only if it starts happening frequently.
 
 ## Setup (in progress)
