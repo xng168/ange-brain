@@ -19,13 +19,15 @@ Active tasks, open questions, and decisions pending.
 - [ ] Continue with Claude Code for Phase 2 (data model + spreadsheet import pipeline) once Supabase is connected
 - [ ] Loop in the TCM practitioner reviewer early, per the Open Gaps section in the venture note
 
-## Mandarin Kids App (pre-build)
+## Mandarin Kids App (building — M0 done)
 - [x] Imported the claude.ai web market-research session into the vault and spec'd the venture (2026-07-18) — see [[Ventures/Mandarin Kids App/index|Mandarin Kids App]]
 - [x] **Platform decision revised (2026-07-18):** fuller web-chat transcript showed it had already moved SwiftUI → **React Native + Expo** (Windows dev, Expo Go on-phone testing, EAS cloud iOS builds — no Mac) and Angela ratified it there. Vault's PWA-path Build Plan + Super Prompt marked superseded (kept as fallback). Claude Code endorsed the switch: offline reliability, one-time purchase, Kids-Category trust are all stronger native.
 - [ ] **Import the web-chat build kit** (the canonical version) into the vault/project: CLAUDE.md super prompt, no-Mac build guide, symmetric two-language schema, **292-word bilingual content list** — download/copy from the claude.ai session before starting the build
 - [ ] **Decide two content-schema questions** before recording audio: simplified vs. traditional characters, pinyin vs. zhuyin (schema holds both; just pick the v1 default — recommend simplified + pinyin)
 - [ ] Get the 292-word list **native-speaker proofread** (the stated gate before any audio recording), then line up recording (word + phrase clips) + a consistent image source — the real bottleneck
-- [ ] Create `C:\Users\Angela\Projects\mandarin-kids-app`, install Node.js, place the web kit's CLAUDE.md, start Claude Code → Milestone 0 (Expo scaffold, test on iPhone via Expo Go)
+- [x] **M0 built (2026-07-18):** Expo project scaffolded at `C:\Users\Angela\Projects\mandarin-kids-app`, build kit installed, 20-card placeholder pack, "Heritage Words" home screen; iOS bundle + typecheck verified; committed (`main`, `3f05df5`). Uses the verified reconstruction (browser's literal outputs weren't in the export).
+- [ ] **Angela: test M0 on your iPhone** — install Expo Go, run `npm start` in the project folder, scan the QR (same Wi-Fi). Success = "Heritage Words" home screen shows.
+- [ ] **M1 — pack engine:** continue in a *fresh* Claude Code session opened in the project folder (so its CLAUDE.md governs) — build the pack loader/validator + debug screen.
 - [ ] Landing page + waitlist on Vercel (separate tiny site, same pattern as Meridian/TCM App) for the TikTok-bio validation link — the funnel doesn't wait for the native app
 - [ ] Later gates to remember: Apple Developer $99/yr at TestFlight time; EAS free-tier limits (~US$19/mo beyond) once cloud builds start
 
