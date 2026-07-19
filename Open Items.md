@@ -40,6 +40,14 @@ Active tasks, open questions, and decisions pending.
 - [ ] Landing page + waitlist on Vercel (separate tiny site, same pattern as Meridian/TCM App) for the TikTok-bio validation link — the funnel doesn't wait for the native app
 - [ ] Later gates to remember: Apple Developer $99/yr at TestFlight time; EAS free-tier limits (~US$19/mo beyond) once cloud builds start
 
+## Productivity Self Care Pet (idea / evaluation)
+- [x] Venture created 2026-07-19 — [[Ventures/Productivity Self Care Pet/index|Productivity Self Care Pet]]. Reframed from a Finch-style blocker to a **roaming on-screen companion** with generic nudges.
+- [x] Feasibility established: hero roaming-overlay mechanic works on **desktop (Electron/Tauri, best fit) + Android**, is **impossible on iOS** (no draw-over-other-apps API). Distinctiveness is in positioning/art/brand, not tech.
+- [ ] **Decide the platform fork:** Desktop vs Android vs both (iOS ruled out for the hero mechanic).
+- [ ] **Decide sequencing:** pursue now, or park as a spec'd "next" venture — note the strongest platform (desktop) needs a *new* stack (Electron/Tauri), so it doesn't reuse the Mandarin Kids App / Expo momentum.
+- [ ] Real name + brand direction (matters more here — brand + character *is* the moat).
+- [ ] Monetisation hypothesis (one-time purchase vs cosmetic pet packs vs freemium).
+
 ## claude.ai web export migration (2026-07-18)
 - [x] Exported the full claude.ai account history (29 conversations) → archived raw in `_sources/Export Data 18072026/` (gitignored).
 - [x] Reconstructed the Mandarin Kids App build kit from the export's tool-command history (the rendered files weren't in the export); verified + fixed a replay gap; kit now in `Ventures/Mandarin Kids App/build-kit/`. See [[Ventures/Mandarin Kids App/index|Mandarin Kids App]].
